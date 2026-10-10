@@ -1,0 +1,1511 @@
+{
+  "users": [
+    {
+      "id": "1c9ba2c6-40c3-4da5-ab8c-7f7b8364da2c",
+      "email": "analyst@trinance.io",
+      "passwordHash": "88364c14923a7a119092e1cba07cd107a61ebd6ea69355a2c9ab746c20062f8f",
+      "fullName": "Lead Financial Analyst",
+      "role": "analyst",
+      "preferences": {
+        "theme": "light",
+        "defaultMode": "combined",
+        "layout": "standard"
+      },
+      "createdAt": "2026-10-10T06:39:22.251Z"
+    }
+  ],
+  "documents": [],
+  "analyses": [
+    {
+      "userId": "1c9ba2c6-40c3-4da5-ab8c-7f7b8364da2c",
+      "documentId": null,
+      "title": "Apex Financial Services Robust Performance",
+      "sourceType": "pasted_text",
+      "sourceCategory": "financial_report",
+      "analysisMode": "combined",
+      "status": "completed",
+      "inputText": "Apex delivered record net income of $88.4 million for the fiscal year, representing an expansion of 32% year-over-year. Robust client retention and efficiency initiatives accelerated margin expansion across all retail and commercial banking segments. Solvency ratios remained exceptionally strong with a Tier-1 capital ratio of 16.2%, and cash-rich balance sheet reserves increased to $410 million. Operating cash flow surplus was $94 million, enabling a 15% increase in annual dividends. No regulatory inquiries, litigation liabilities, or debt covenant strains were reported during the audited period.",
+      "wordCount": 84,
+      "sentimentResult": {
+        "overall": "positive",
+        "score": 0.94,
+        "confidence": 0.95,
+        "summary": "Report conveys predominantly favorable sentiment (score: +0.94). Primary catalysts include Strong indicator: record, Strong indicator: expansion. No systemic balance sheet deterioration detected.",
+        "positiveSignals": [
+          {
+            "id": "pos-0",
+            "label": "Strong indicator: record",
+            "excerpt": "Apex delivered record net income of $88.",
+            "score": 0.8,
+            "sourceLocation": {
+              "line": 1,
+              "startOffset": 0,
+              "endOffset": 40
+            }
+          },
+          {
+            "id": "pos-1",
+            "label": "Strong indicator: expansion",
+            "excerpt": "4 million for the fiscal year, representing an expansion of 32% year-over-year.",
+            "score": 0.65,
+            "sourceLocation": {
+              "line": 2,
+              "startOffset": 40,
+              "endOffset": 119
+            }
+          },
+          {
+            "id": "pos-2",
+            "label": "Strong indicator: robust, efficiency",
+            "excerpt": "Robust client retention and efficiency initiatives accelerated margin expansion across all retail and commercial banking segments.",
+            "score": 3.6,
+            "sourceLocation": {
+              "line": 3,
+              "startOffset": 119,
+              "endOffset": 249
+            }
+          },
+          {
+            "id": "pos-3",
+            "label": "Strong indicator: solvency, strong",
+            "excerpt": "Solvency ratios remained exceptionally strong with a Tier-1 capital ratio of 16.",
+            "score": 1.4,
+            "sourceLocation": {
+              "line": 4,
+              "startOffset": 250,
+              "endOffset": 330
+            }
+          },
+          {
+            "id": "pos-5",
+            "label": "Strong indicator: dividends",
+            "excerpt": "Operating cash flow surplus was $94 million, enabling a 15% increase in annual dividends.",
+            "score": 0.5,
+            "sourceLocation": {
+              "line": 6,
+              "startOffset": 398,
+              "endOffset": 487
+            }
+          },
+          {
+            "id": "pos-6",
+            "label": "Strong indicator: no litigation",
+            "excerpt": "No regulatory inquiries, litigation liabilities, or debt covenant strains were reported during the audited period.",
+            "score": 0.52,
+            "sourceLocation": {
+              "line": 7,
+              "startOffset": 488,
+              "endOffset": 602
+            }
+          }
+        ],
+        "negativeSignals": [],
+        "neutralSignals": [
+          {
+            "id": "neu-4",
+            "label": "Factual disclosure",
+            "excerpt": "2%, and cash-rich balance sheet reserves increased to $410 million.",
+            "score": 0,
+            "sourceLocation": {
+              "line": 5,
+              "startOffset": 331,
+              "endOffset": 398
+            }
+          }
+        ],
+        "contradictions": [],
+        "limitations": "Deterministic domain-lexicon analysis validated against 86 words across 7 sentences. Sentiment classifications should be evaluated alongside underlying financial statements and cash-flow audits."
+      },
+      "riskResult": {
+        "overallRiskScore": 0,
+        "highestSeverity": "low",
+        "openFindingsCount": 0,
+        "severityDistribution": {
+          "low": 0,
+          "medium": 0,
+          "high": 0,
+          "critical": 0
+        },
+        "categoryDistribution": {},
+        "summary": "CLEAN RISK RECORD: No systemic financial, operational, or compliance risk indicators were detected in the supplied text."
+      },
+      "findings": [],
+      "id": "10560a99-538f-474c-b62b-2a01ef0afc9c",
+      "createdAt": "2026-10-10T06:55:00.291Z",
+      "updatedAt": "2026-10-10T06:55:00.291Z"
+    },
+    {
+      "userId": "1c9ba2c6-40c3-4da5-ab8c-7f7b8364da2c",
+      "documentId": null,
+      "title": "Acme Corp Q3 Liquidity Review (Renamed Audit)",
+      "sourceType": "pasted_text",
+      "sourceCategory": "financial_report",
+      "analysisMode": "combined",
+      "inputText": "During the third quarter, operating revenue contracted by 14% year-over-year to $42.5 million. Furthermore, gross margin dropped from 58% to 41% due to severe cost inflation and material shortages across our primary supply chain. Operating cash flow deficit reached $18.2 million, resulting in declining cash reserves of only $6.4 million. As a consequence of these pressures, the company experienced a covenant breach under our senior credit facility. In addition, customer churn spiked to 22% among key enterprise accounts following service outage incidents in August. Days sales outstanding rose to 84 days, compounding our cash burn rate. The company is in active discussions with lenders regarding covenant relief, but there is substantial doubt about the company's ability to continue as a going concern if secondary financing is not secured.",
+      "wordCount": 128,
+      "sentimentResult": {
+        "overall": "negative",
+        "score": -0.9,
+        "confidence": 0.95,
+        "summary": "Report reflects adverse financial sentiment (score: -0.9). Significant negative pressure identified around Adverse signal: deficit, Adverse signal: declining.",
+        "positiveSignals": [],
+        "negativeSignals": [
+          {
+            "id": "neg-3",
+            "label": "Adverse signal: deficit",
+            "excerpt": "Operating cash flow deficit reached $18.",
+            "score": -0.85,
+            "sourceLocation": {
+              "line": 4,
+              "startOffset": 229,
+              "endOffset": 269
+            }
+          },
+          {
+            "id": "neg-4",
+            "label": "Adverse signal: declining",
+            "excerpt": "2 million, resulting in declining cash reserves of only $6.",
+            "score": -0.7,
+            "sourceLocation": {
+              "line": 5,
+              "startOffset": 270,
+              "endOffset": 329
+            }
+          },
+          {
+            "id": "neg-6",
+            "label": "Adverse signal: pressures, covenant breach",
+            "excerpt": "As a consequence of these pressures, the company experienced a covenant breach under our senior credit facility.",
+            "score": -1.6,
+            "sourceLocation": {
+              "line": 7,
+              "startOffset": 339,
+              "endOffset": 451
+            }
+          },
+          {
+            "id": "neg-7",
+            "label": "Adverse signal: churn",
+            "excerpt": "In addition, customer churn spiked to 22% among key enterprise accounts following service outage incidents in August.",
+            "score": -0.75,
+            "sourceLocation": {
+              "line": 8,
+              "startOffset": 452,
+              "endOffset": 569
+            }
+          },
+          {
+            "id": "neg-8",
+            "label": "Adverse signal: burn rate",
+            "excerpt": "Days sales outstanding rose to 84 days, compounding our cash burn rate.",
+            "score": -0.75,
+            "sourceLocation": {
+              "line": 9,
+              "startOffset": 570,
+              "endOffset": 641
+            }
+          }
+        ],
+        "neutralSignals": [
+          {
+            "id": "neu-0",
+            "label": "Factual disclosure",
+            "excerpt": "During the third quarter, operating revenue contracted by 14% year-over-year to $42.",
+            "score": 0,
+            "sourceLocation": {
+              "line": 1,
+              "startOffset": 0,
+              "endOffset": 84
+            }
+          },
+          {
+            "id": "neu-2",
+            "label": "Factual disclosure",
+            "excerpt": "Furthermore, gross margin dropped from 58% to 41% due to severe cost inflation and material shortages across our primary supply chain.",
+            "score": 0,
+            "sourceLocation": {
+              "line": 3,
+              "startOffset": 94,
+              "endOffset": 228
+            }
+          }
+        ],
+        "contradictions": [],
+        "limitations": "Deterministic domain-lexicon analysis validated against 132 words across 10 sentences. Sentiment classifications should be evaluated alongside underlying financial statements and cash-flow audits."
+      },
+      "riskResult": {
+        "overallRiskScore": 100,
+        "highestSeverity": "critical",
+        "openFindingsCount": 10,
+        "severityDistribution": {
+          "low": 0,
+          "medium": 2,
+          "high": 6,
+          "critical": 2
+        },
+        "categoryDistribution": {
+          "revenue_earnings_pressure": 1,
+          "expense_margin_deterioration": 1,
+          "supply_chain_dependency": 1,
+          "liquidity_cash_flow": 2,
+          "debt_leverage": 1,
+          "customer_churn_confidence": 1,
+          "operational_disruption": 1,
+          "late_payments_collections": 1,
+          "business_continuity": 1
+        },
+        "summary": "CRITICAL RISK PROFILE DETECTED: Platform uncovered 10 risk finding(s), with severe vulnerability in Debt & Leverage Structure and Business Continuity & Going Concern. Immediate management intervention required."
+      },
+      "findings": [
+        {
+          "id": "risk-revenue_earnings_pressure-0-1",
+          "category": "revenue_earnings_pressure",
+          "categoryLabel": "Revenue & Earnings Pressure",
+          "title": "Top-Line Contraction & Earnings Vulnerability",
+          "excerpt": "During the third quarter, operating revenue contracted by 14% year-over-year to $42.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 0,
+            "endOffset": 84
+          },
+          "explanation": "Identifies negative growth trajectory or downward earnings revision (revenue contracted).",
+          "severity": "medium",
+          "severityRationale": "Sustained revenue contraction depresses operating leverage and compromises enterprise valuation.",
+          "confidence": 0.94,
+          "potentialImpact": "Compressed operating margins and negative analyst re-rating.",
+          "suggestedNextSteps": [
+            "Segment churn and cohort retention by product line.",
+            "Re-examine pricing elasticity and promotional discounts.",
+            "Review sales pipeline conversion rates and pipeline velocity."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-expense_margin_deterioration-2-2",
+          "category": "expense_margin_deterioration",
+          "categoryLabel": "Expense Growth & Margin Deterioration",
+          "title": "Operating Margin Compression & Cost Inflation",
+          "excerpt": "Furthermore, gross margin dropped from 58% to 41% due to severe cost inflation and material shortages across our primary supply chain.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 95,
+            "endOffset": 229
+          },
+          "explanation": "Notes deterioration of gross or operating margins caused by runaway expenditures or input cost inflation (gross margin dropped).",
+          "severity": "high",
+          "severityRationale": "Operating cost escalation outstrips top-line realization, eroding bottom-line profitability.",
+          "confidence": 0.94,
+          "potentialImpact": "Shrinking free cash flow conversion and diminished reinvestment capacity.",
+          "suggestedNextSteps": [
+            "Perform line-item OPEX variance audit across business units.",
+            "Renegotiate vendor contracts and introduce procurement threshold freezes.",
+            "Automate high-cost manual processing workflows."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-supply_chain_dependency-2-3",
+          "category": "supply_chain_dependency",
+          "categoryLabel": "Supply Chain Dependency",
+          "title": "Concentrated Vendor Dependency & Supply Chokepoints",
+          "excerpt": "Furthermore, gross margin dropped from 58% to 41% due to severe cost inflation and material shortages across our primary supply chain.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 95,
+            "endOffset": 229
+          },
+          "explanation": "Uncovers vulnerability to single-source suppliers or critical material procurement chokepoints (material shortages).",
+          "severity": "high",
+          "severityRationale": "A single-point supplier breakdown halts manufacturing or service fulfillment without immediate alternative sourcing.",
+          "confidence": 0.82,
+          "potentialImpact": "Severe lead time elongation, unfulfilled purchase orders, and inventory stock-outs.",
+          "suggestedNextSteps": [
+            "Qualify dual-sourcing secondary suppliers across tier-1 materials.",
+            "Maintain strategic safety stock buffers for critical components.",
+            "Audit financial health and solvency ratings of primary suppliers."
+          ],
+          "classification": "inferred",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-liquidity_cash_flow-3-4",
+          "category": "liquidity_cash_flow",
+          "categoryLabel": "Liquidity & Cash Flow Risk",
+          "title": "Acute Cash Burn & Liquidity Strain",
+          "excerpt": "Operating cash flow deficit reached $18.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 230,
+            "endOffset": 270
+          },
+          "explanation": "Discloses immediate liquidity constraints or accelerating cash burn (Operating cash flow deficit) that threaten operating solvency.",
+          "severity": "high",
+          "severityRationale": "Materiality is severe because near-term obligations cannot be sustained without external capital injection or emergency credit facilities.",
+          "confidence": 0.94,
+          "potentialImpact": "Potential inability to meet vendor obligations or debt service covenants within the next 3 to 6 months.",
+          "suggestedNextSteps": [
+            "Conduct 13-week rolling cash flow forecast.",
+            "Audit working capital requirements and defer discretionary capital expenditures.",
+            "Engage secondary lending syndicates for emergency revolving credit extension."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-liquidity_cash_flow-4-5",
+          "category": "liquidity_cash_flow",
+          "categoryLabel": "Liquidity & Cash Flow Risk",
+          "title": "Acute Cash Burn & Liquidity Strain",
+          "excerpt": "2 million, resulting in declining cash reserves of only $6.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 270,
+            "endOffset": 329
+          },
+          "explanation": "Discloses immediate liquidity constraints or accelerating cash burn (declining cash reserves) that threaten operating solvency.",
+          "severity": "high",
+          "severityRationale": "Materiality is severe because near-term obligations cannot be sustained without external capital injection or emergency credit facilities.",
+          "confidence": 0.94,
+          "potentialImpact": "Potential inability to meet vendor obligations or debt service covenants within the next 3 to 6 months.",
+          "suggestedNextSteps": [
+            "Conduct 13-week rolling cash flow forecast.",
+            "Audit working capital requirements and defer discretionary capital expenditures.",
+            "Engage secondary lending syndicates for emergency revolving credit extension."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-debt_leverage-6-6",
+          "category": "debt_leverage",
+          "categoryLabel": "Debt & Leverage Structure",
+          "title": "Elevated Leverage & Debt Covenant Exposure",
+          "excerpt": "As a consequence of these pressures, the company experienced a covenant breach under our senior credit facility.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 340,
+            "endOffset": 452
+          },
+          "explanation": "Highlights critical leverage vulnerability or impending debt covenant non-compliance (covenant breach).",
+          "severity": "critical",
+          "severityRationale": "Covenant default triggers cross-acceleration across existing senior facilities, creating systemic refinancing risk.",
+          "confidence": 0.94,
+          "potentialImpact": "Creditors may demand immediate principal prepayment or penal interest rate escalations.",
+          "suggestedNextSteps": [
+            "Review credit agreement cure periods and request formal lender waivers.",
+            "Assess debt restructuring alternatives and maturity ladder extensions.",
+            "Model debt service coverage ratio (DSCR) under stressed EBITDA scenarios."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-customer_churn_confidence-7-7",
+          "category": "customer_churn_confidence",
+          "categoryLabel": "Customer Churn & Confidence",
+          "title": "Customer Churn & Enterprise Client Attrition",
+          "excerpt": "In addition, customer churn spiked to 22% among key enterprise accounts following service outage incidents in August.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 453,
+            "endOffset": 570
+          },
+          "explanation": "Reveals escalating customer defections or non-renewal of significant enterprise accounts (customer churn spiked).",
+          "severity": "high",
+          "severityRationale": "Elevated churn erodes recurring revenue baseline and increases customer acquisition cost (CAC) payback periods.",
+          "confidence": 0.94,
+          "potentialImpact": "Persistent multi-quarter revenue drag and market share concession to competitors.",
+          "suggestedNextSteps": [
+            "Execute customer health score audits for top 20% revenue-generating accounts.",
+            "Investigate primary cancellation reasons via executive outreach.",
+            "Implement proactive SLA monitoring and customer success intervention programs."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-operational_disruption-7-8",
+          "category": "operational_disruption",
+          "categoryLabel": "Operational Disruption",
+          "title": "Core Operational Downtime & Service Interruption",
+          "excerpt": "In addition, customer churn spiked to 22% among key enterprise accounts following service outage incidents in August.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 453,
+            "endOffset": 570
+          },
+          "explanation": "Documents structural operational bottlenecks or unplanned downtime (service outage) impacting delivery.",
+          "severity": "high",
+          "severityRationale": "Core facility or infrastructure downtime immediately jeopardizes customer SLAs and contractual warranties.",
+          "confidence": 0.94,
+          "potentialImpact": "Direct contractual liquidated damages and loss of client trust.",
+          "suggestedNextSteps": [
+            "Initiate root-cause engineering review and disaster failover testing.",
+            "Establish secondary redundant cloud and operational nodes.",
+            "Verify business interruption insurance policy limits."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-late_payments_collections-8-9",
+          "category": "late_payments_collections",
+          "categoryLabel": "Late Payments & Collections",
+          "title": "DSO Extension & Counterparty Collection Delays",
+          "excerpt": "Days sales outstanding rose to 84 days, compounding our cash burn rate.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 571,
+            "endOffset": 642
+          },
+          "explanation": "Reports growing days sales outstanding (DSO) or surge in overdue customer receivables (Days sales outstanding rose).",
+          "severity": "medium",
+          "severityRationale": "Aging accounts receivable tie up operating cash in working capital and elevate default loss exposure.",
+          "confidence": 0.94,
+          "potentialImpact": "Cash drag and mandatory provision write-downs against aged ledger balances.",
+          "suggestedNextSteps": [
+            "Enforce stricter credit evaluation limits on delayed accounts.",
+            "Introduce early payment discounting (e.g. 2/10 net 30).",
+            "Escalate past-due accounts over 60 days to dedicated collection protocol."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-business_continuity-9-10",
+          "category": "business_continuity",
+          "categoryLabel": "Business Continuity & Going Concern",
+          "title": "Going Concern Warning & Solvency Threat",
+          "excerpt": "The company is in active discussions with lenders regarding covenant relief, but there is substantial doubt about the company's ability to continue as a going concern if secondary financing is not secured.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 643,
+            "endOffset": 848
+          },
+          "explanation": "Contains explicit auditor or management disclosures questioning going-concern viability (substantial doubt about the company's ability to continue as a going concern).",
+          "severity": "critical",
+          "severityRationale": "Represents the most acute stage of enterprise risk, indicating imminent operational collapse without radical capital intervention.",
+          "confidence": 0.94,
+          "potentialImpact": "Immediate covenant liquidation, equity wipeout risk, and supplier credit withdrawal.",
+          "suggestedNextSteps": [
+            "Engage specialized turnaround advisors and insolvency counsel.",
+            "Formulate contingency liquidation or chapter reorganization plans.",
+            "Explore urgent distressed M&A or debt-for-equity recapitalization options."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        }
+      ],
+      "id": "e8e2a065-891c-4aa0-803b-fe15b8bd8c27",
+      "createdAt": "2026-10-10T06:55:00.284Z",
+      "updatedAt": "2026-10-10T06:55:00.300Z"
+    },
+    {
+      "userId": "1c9ba2c6-40c3-4da5-ab8c-7f7b8364da2c",
+      "documentId": null,
+      "title": "Apex Financial Services Robust Performance",
+      "sourceType": "pasted_text",
+      "sourceCategory": "financial_report",
+      "analysisMode": "combined",
+      "status": "completed",
+      "inputText": "Apex delivered record net income of $88.4 million for the fiscal year, representing an expansion of 32% year-over-year. Robust client retention and efficiency initiatives accelerated margin expansion across all retail and commercial banking segments. Solvency ratios remained exceptionally strong with a Tier-1 capital ratio of 16.2%, and cash-rich balance sheet reserves increased to $410 million. Operating cash flow surplus was $94 million, enabling a 15% increase in annual dividends. No regulatory inquiries, litigation liabilities, or debt covenant strains were reported during the audited period.",
+      "wordCount": 84,
+      "sentimentResult": {
+        "overall": "positive",
+        "score": 0.94,
+        "confidence": 0.95,
+        "summary": "Report conveys predominantly favorable sentiment (score: +0.94). Primary catalysts include Strong indicator: record, Strong indicator: expansion. No systemic balance sheet deterioration detected.",
+        "positiveSignals": [
+          {
+            "id": "pos-0",
+            "label": "Strong indicator: record",
+            "excerpt": "Apex delivered record net income of $88.",
+            "score": 0.8,
+            "sourceLocation": {
+              "line": 1,
+              "startOffset": 0,
+              "endOffset": 40
+            }
+          },
+          {
+            "id": "pos-1",
+            "label": "Strong indicator: expansion",
+            "excerpt": "4 million for the fiscal year, representing an expansion of 32% year-over-year.",
+            "score": 0.65,
+            "sourceLocation": {
+              "line": 2,
+              "startOffset": 40,
+              "endOffset": 119
+            }
+          },
+          {
+            "id": "pos-2",
+            "label": "Strong indicator: robust, efficiency",
+            "excerpt": "Robust client retention and efficiency initiatives accelerated margin expansion across all retail and commercial banking segments.",
+            "score": 3.6,
+            "sourceLocation": {
+              "line": 3,
+              "startOffset": 119,
+              "endOffset": 249
+            }
+          },
+          {
+            "id": "pos-3",
+            "label": "Strong indicator: solvency, strong",
+            "excerpt": "Solvency ratios remained exceptionally strong with a Tier-1 capital ratio of 16.",
+            "score": 1.4,
+            "sourceLocation": {
+              "line": 4,
+              "startOffset": 250,
+              "endOffset": 330
+            }
+          },
+          {
+            "id": "pos-5",
+            "label": "Strong indicator: dividends",
+            "excerpt": "Operating cash flow surplus was $94 million, enabling a 15% increase in annual dividends.",
+            "score": 0.5,
+            "sourceLocation": {
+              "line": 6,
+              "startOffset": 398,
+              "endOffset": 487
+            }
+          },
+          {
+            "id": "pos-6",
+            "label": "Strong indicator: no litigation",
+            "excerpt": "No regulatory inquiries, litigation liabilities, or debt covenant strains were reported during the audited period.",
+            "score": 0.52,
+            "sourceLocation": {
+              "line": 7,
+              "startOffset": 488,
+              "endOffset": 602
+            }
+          }
+        ],
+        "negativeSignals": [],
+        "neutralSignals": [
+          {
+            "id": "neu-4",
+            "label": "Factual disclosure",
+            "excerpt": "2%, and cash-rich balance sheet reserves increased to $410 million.",
+            "score": 0,
+            "sourceLocation": {
+              "line": 5,
+              "startOffset": 331,
+              "endOffset": 398
+            }
+          }
+        ],
+        "contradictions": [],
+        "limitations": "Deterministic domain-lexicon analysis validated against 86 words across 7 sentences. Sentiment classifications should be evaluated alongside underlying financial statements and cash-flow audits."
+      },
+      "riskResult": {
+        "overallRiskScore": 0,
+        "highestSeverity": "low",
+        "openFindingsCount": 0,
+        "severityDistribution": {
+          "low": 0,
+          "medium": 0,
+          "high": 0,
+          "critical": 0
+        },
+        "categoryDistribution": {},
+        "summary": "CLEAN RISK RECORD: No systemic financial, operational, or compliance risk indicators were detected in the supplied text."
+      },
+      "findings": [],
+      "id": "7f81d787-c6f2-479b-954e-51daa341778e",
+      "createdAt": "2026-10-10T06:40:49.593Z",
+      "updatedAt": "2026-10-10T06:40:49.593Z"
+    },
+    {
+      "userId": "1c9ba2c6-40c3-4da5-ab8c-7f7b8364da2c",
+      "documentId": null,
+      "title": "Acme Corp Q3 Liquidity & Debt Covenant Disclosure",
+      "sourceType": "pasted_text",
+      "sourceCategory": "financial_report",
+      "analysisMode": "combined",
+      "status": "completed",
+      "inputText": "During the third quarter, operating revenue contracted by 14% year-over-year to $42.5 million. Furthermore, gross margin dropped from 58% to 41% due to severe cost inflation and material shortages across our primary supply chain. Operating cash flow deficit reached $18.2 million, resulting in declining cash reserves of only $6.4 million. As a consequence of these pressures, the company experienced a covenant breach under our senior credit facility. In addition, customer churn spiked to 22% among key enterprise accounts following service outage incidents in August. Days sales outstanding rose to 84 days, compounding our cash burn rate. The company is in active discussions with lenders regarding covenant relief, but there is substantial doubt about the company's ability to continue as a going concern if secondary financing is not secured.",
+      "wordCount": 128,
+      "sentimentResult": {
+        "overall": "negative",
+        "score": -0.9,
+        "confidence": 0.95,
+        "summary": "Report reflects adverse financial sentiment (score: -0.9). Significant negative pressure identified around Adverse signal: deficit, Adverse signal: declining.",
+        "positiveSignals": [],
+        "negativeSignals": [
+          {
+            "id": "neg-3",
+            "label": "Adverse signal: deficit",
+            "excerpt": "Operating cash flow deficit reached $18.",
+            "score": -0.85,
+            "sourceLocation": {
+              "line": 4,
+              "startOffset": 229,
+              "endOffset": 269
+            }
+          },
+          {
+            "id": "neg-4",
+            "label": "Adverse signal: declining",
+            "excerpt": "2 million, resulting in declining cash reserves of only $6.",
+            "score": -0.7,
+            "sourceLocation": {
+              "line": 5,
+              "startOffset": 270,
+              "endOffset": 329
+            }
+          },
+          {
+            "id": "neg-6",
+            "label": "Adverse signal: pressures, covenant breach",
+            "excerpt": "As a consequence of these pressures, the company experienced a covenant breach under our senior credit facility.",
+            "score": -1.6,
+            "sourceLocation": {
+              "line": 7,
+              "startOffset": 339,
+              "endOffset": 451
+            }
+          },
+          {
+            "id": "neg-7",
+            "label": "Adverse signal: churn",
+            "excerpt": "In addition, customer churn spiked to 22% among key enterprise accounts following service outage incidents in August.",
+            "score": -0.75,
+            "sourceLocation": {
+              "line": 8,
+              "startOffset": 452,
+              "endOffset": 569
+            }
+          },
+          {
+            "id": "neg-8",
+            "label": "Adverse signal: burn rate",
+            "excerpt": "Days sales outstanding rose to 84 days, compounding our cash burn rate.",
+            "score": -0.75,
+            "sourceLocation": {
+              "line": 9,
+              "startOffset": 570,
+              "endOffset": 641
+            }
+          }
+        ],
+        "neutralSignals": [
+          {
+            "id": "neu-0",
+            "label": "Factual disclosure",
+            "excerpt": "During the third quarter, operating revenue contracted by 14% year-over-year to $42.",
+            "score": 0,
+            "sourceLocation": {
+              "line": 1,
+              "startOffset": 0,
+              "endOffset": 84
+            }
+          },
+          {
+            "id": "neu-2",
+            "label": "Factual disclosure",
+            "excerpt": "Furthermore, gross margin dropped from 58% to 41% due to severe cost inflation and material shortages across our primary supply chain.",
+            "score": 0,
+            "sourceLocation": {
+              "line": 3,
+              "startOffset": 94,
+              "endOffset": 228
+            }
+          }
+        ],
+        "contradictions": [],
+        "limitations": "Deterministic domain-lexicon analysis validated against 132 words across 10 sentences. Sentiment classifications should be evaluated alongside underlying financial statements and cash-flow audits."
+      },
+      "riskResult": {
+        "overallRiskScore": 100,
+        "highestSeverity": "critical",
+        "openFindingsCount": 10,
+        "severityDistribution": {
+          "low": 0,
+          "medium": 2,
+          "high": 6,
+          "critical": 2
+        },
+        "categoryDistribution": {
+          "revenue_earnings_pressure": 1,
+          "expense_margin_deterioration": 1,
+          "supply_chain_dependency": 1,
+          "liquidity_cash_flow": 2,
+          "debt_leverage": 1,
+          "customer_churn_confidence": 1,
+          "operational_disruption": 1,
+          "late_payments_collections": 1,
+          "business_continuity": 1
+        },
+        "summary": "CRITICAL RISK PROFILE DETECTED: Platform uncovered 10 risk finding(s), with severe vulnerability in Debt & Leverage Structure and Business Continuity & Going Concern. Immediate management intervention required."
+      },
+      "findings": [
+        {
+          "id": "risk-revenue_earnings_pressure-0-1",
+          "category": "revenue_earnings_pressure",
+          "categoryLabel": "Revenue & Earnings Pressure",
+          "title": "Top-Line Contraction & Earnings Vulnerability",
+          "excerpt": "During the third quarter, operating revenue contracted by 14% year-over-year to $42.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 0,
+            "endOffset": 84
+          },
+          "explanation": "Identifies negative growth trajectory or downward earnings revision (revenue contracted).",
+          "severity": "medium",
+          "severityRationale": "Sustained revenue contraction depresses operating leverage and compromises enterprise valuation.",
+          "confidence": 0.94,
+          "potentialImpact": "Compressed operating margins and negative analyst re-rating.",
+          "suggestedNextSteps": [
+            "Segment churn and cohort retention by product line.",
+            "Re-examine pricing elasticity and promotional discounts.",
+            "Review sales pipeline conversion rates and pipeline velocity."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-expense_margin_deterioration-2-2",
+          "category": "expense_margin_deterioration",
+          "categoryLabel": "Expense Growth & Margin Deterioration",
+          "title": "Operating Margin Compression & Cost Inflation",
+          "excerpt": "Furthermore, gross margin dropped from 58% to 41% due to severe cost inflation and material shortages across our primary supply chain.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 95,
+            "endOffset": 229
+          },
+          "explanation": "Notes deterioration of gross or operating margins caused by runaway expenditures or input cost inflation (gross margin dropped).",
+          "severity": "high",
+          "severityRationale": "Operating cost escalation outstrips top-line realization, eroding bottom-line profitability.",
+          "confidence": 0.94,
+          "potentialImpact": "Shrinking free cash flow conversion and diminished reinvestment capacity.",
+          "suggestedNextSteps": [
+            "Perform line-item OPEX variance audit across business units.",
+            "Renegotiate vendor contracts and introduce procurement threshold freezes.",
+            "Automate high-cost manual processing workflows."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-supply_chain_dependency-2-3",
+          "category": "supply_chain_dependency",
+          "categoryLabel": "Supply Chain Dependency",
+          "title": "Concentrated Vendor Dependency & Supply Chokepoints",
+          "excerpt": "Furthermore, gross margin dropped from 58% to 41% due to severe cost inflation and material shortages across our primary supply chain.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 95,
+            "endOffset": 229
+          },
+          "explanation": "Uncovers vulnerability to single-source suppliers or critical material procurement chokepoints (material shortages).",
+          "severity": "high",
+          "severityRationale": "A single-point supplier breakdown halts manufacturing or service fulfillment without immediate alternative sourcing.",
+          "confidence": 0.82,
+          "potentialImpact": "Severe lead time elongation, unfulfilled purchase orders, and inventory stock-outs.",
+          "suggestedNextSteps": [
+            "Qualify dual-sourcing secondary suppliers across tier-1 materials.",
+            "Maintain strategic safety stock buffers for critical components.",
+            "Audit financial health and solvency ratings of primary suppliers."
+          ],
+          "classification": "inferred",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-liquidity_cash_flow-3-4",
+          "category": "liquidity_cash_flow",
+          "categoryLabel": "Liquidity & Cash Flow Risk",
+          "title": "Acute Cash Burn & Liquidity Strain",
+          "excerpt": "Operating cash flow deficit reached $18.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 230,
+            "endOffset": 270
+          },
+          "explanation": "Discloses immediate liquidity constraints or accelerating cash burn (Operating cash flow deficit) that threaten operating solvency.",
+          "severity": "high",
+          "severityRationale": "Materiality is severe because near-term obligations cannot be sustained without external capital injection or emergency credit facilities.",
+          "confidence": 0.94,
+          "potentialImpact": "Potential inability to meet vendor obligations or debt service covenants within the next 3 to 6 months.",
+          "suggestedNextSteps": [
+            "Conduct 13-week rolling cash flow forecast.",
+            "Audit working capital requirements and defer discretionary capital expenditures.",
+            "Engage secondary lending syndicates for emergency revolving credit extension."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-liquidity_cash_flow-4-5",
+          "category": "liquidity_cash_flow",
+          "categoryLabel": "Liquidity & Cash Flow Risk",
+          "title": "Acute Cash Burn & Liquidity Strain",
+          "excerpt": "2 million, resulting in declining cash reserves of only $6.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 270,
+            "endOffset": 329
+          },
+          "explanation": "Discloses immediate liquidity constraints or accelerating cash burn (declining cash reserves) that threaten operating solvency.",
+          "severity": "high",
+          "severityRationale": "Materiality is severe because near-term obligations cannot be sustained without external capital injection or emergency credit facilities.",
+          "confidence": 0.94,
+          "potentialImpact": "Potential inability to meet vendor obligations or debt service covenants within the next 3 to 6 months.",
+          "suggestedNextSteps": [
+            "Conduct 13-week rolling cash flow forecast.",
+            "Audit working capital requirements and defer discretionary capital expenditures.",
+            "Engage secondary lending syndicates for emergency revolving credit extension."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-debt_leverage-6-6",
+          "category": "debt_leverage",
+          "categoryLabel": "Debt & Leverage Structure",
+          "title": "Elevated Leverage & Debt Covenant Exposure",
+          "excerpt": "As a consequence of these pressures, the company experienced a covenant breach under our senior credit facility.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 340,
+            "endOffset": 452
+          },
+          "explanation": "Highlights critical leverage vulnerability or impending debt covenant non-compliance (covenant breach).",
+          "severity": "critical",
+          "severityRationale": "Covenant default triggers cross-acceleration across existing senior facilities, creating systemic refinancing risk.",
+          "confidence": 0.94,
+          "potentialImpact": "Creditors may demand immediate principal prepayment or penal interest rate escalations.",
+          "suggestedNextSteps": [
+            "Review credit agreement cure periods and request formal lender waivers.",
+            "Assess debt restructuring alternatives and maturity ladder extensions.",
+            "Model debt service coverage ratio (DSCR) under stressed EBITDA scenarios."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-customer_churn_confidence-7-7",
+          "category": "customer_churn_confidence",
+          "categoryLabel": "Customer Churn & Confidence",
+          "title": "Customer Churn & Enterprise Client Attrition",
+          "excerpt": "In addition, customer churn spiked to 22% among key enterprise accounts following service outage incidents in August.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 453,
+            "endOffset": 570
+          },
+          "explanation": "Reveals escalating customer defections or non-renewal of significant enterprise accounts (customer churn spiked).",
+          "severity": "high",
+          "severityRationale": "Elevated churn erodes recurring revenue baseline and increases customer acquisition cost (CAC) payback periods.",
+          "confidence": 0.94,
+          "potentialImpact": "Persistent multi-quarter revenue drag and market share concession to competitors.",
+          "suggestedNextSteps": [
+            "Execute customer health score audits for top 20% revenue-generating accounts.",
+            "Investigate primary cancellation reasons via executive outreach.",
+            "Implement proactive SLA monitoring and customer success intervention programs."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-operational_disruption-7-8",
+          "category": "operational_disruption",
+          "categoryLabel": "Operational Disruption",
+          "title": "Core Operational Downtime & Service Interruption",
+          "excerpt": "In addition, customer churn spiked to 22% among key enterprise accounts following service outage incidents in August.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 453,
+            "endOffset": 570
+          },
+          "explanation": "Documents structural operational bottlenecks or unplanned downtime (service outage) impacting delivery.",
+          "severity": "high",
+          "severityRationale": "Core facility or infrastructure downtime immediately jeopardizes customer SLAs and contractual warranties.",
+          "confidence": 0.94,
+          "potentialImpact": "Direct contractual liquidated damages and loss of client trust.",
+          "suggestedNextSteps": [
+            "Initiate root-cause engineering review and disaster failover testing.",
+            "Establish secondary redundant cloud and operational nodes.",
+            "Verify business interruption insurance policy limits."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-late_payments_collections-8-9",
+          "category": "late_payments_collections",
+          "categoryLabel": "Late Payments & Collections",
+          "title": "DSO Extension & Counterparty Collection Delays",
+          "excerpt": "Days sales outstanding rose to 84 days, compounding our cash burn rate.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 571,
+            "endOffset": 642
+          },
+          "explanation": "Reports growing days sales outstanding (DSO) or surge in overdue customer receivables (Days sales outstanding rose).",
+          "severity": "medium",
+          "severityRationale": "Aging accounts receivable tie up operating cash in working capital and elevate default loss exposure.",
+          "confidence": 0.94,
+          "potentialImpact": "Cash drag and mandatory provision write-downs against aged ledger balances.",
+          "suggestedNextSteps": [
+            "Enforce stricter credit evaluation limits on delayed accounts.",
+            "Introduce early payment discounting (e.g. 2/10 net 30).",
+            "Escalate past-due accounts over 60 days to dedicated collection protocol."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-business_continuity-9-10",
+          "category": "business_continuity",
+          "categoryLabel": "Business Continuity & Going Concern",
+          "title": "Going Concern Warning & Solvency Threat",
+          "excerpt": "The company is in active discussions with lenders regarding covenant relief, but there is substantial doubt about the company's ability to continue as a going concern if secondary financing is not secured.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 643,
+            "endOffset": 848
+          },
+          "explanation": "Contains explicit auditor or management disclosures questioning going-concern viability (substantial doubt about the company's ability to continue as a going concern).",
+          "severity": "critical",
+          "severityRationale": "Represents the most acute stage of enterprise risk, indicating imminent operational collapse without radical capital intervention.",
+          "confidence": 0.94,
+          "potentialImpact": "Immediate covenant liquidation, equity wipeout risk, and supplier credit withdrawal.",
+          "suggestedNextSteps": [
+            "Engage specialized turnaround advisors and insolvency counsel.",
+            "Formulate contingency liquidation or chapter reorganization plans.",
+            "Explore urgent distressed M&A or debt-for-equity recapitalization options."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        }
+      ],
+      "id": "02eca538-7fd6-41b1-8caf-dbfbfa085a87",
+      "createdAt": "2026-10-10T06:40:49.587Z",
+      "updatedAt": "2026-10-10T06:40:49.587Z"
+    },
+    {
+      "userId": "1c9ba2c6-40c3-4da5-ab8c-7f7b8364da2c",
+      "documentId": null,
+      "title": "Apex Financial Services Robust Performance",
+      "sourceType": "pasted_text",
+      "sourceCategory": "financial_report",
+      "analysisMode": "combined",
+      "status": "completed",
+      "inputText": "Apex delivered record net income of $88.4 million for the fiscal year, representing an expansion of 32% year-over-year. Robust client retention and efficiency initiatives accelerated margin expansion across all retail and commercial banking segments. Solvency ratios remained exceptionally strong with a Tier-1 capital ratio of 16.2%, and cash-rich balance sheet reserves increased to $410 million. Operating cash flow surplus was $94 million, enabling a 15% increase in annual dividends. No regulatory inquiries, litigation liabilities, or debt covenant strains were reported during the audited period.",
+      "wordCount": 84,
+      "sentimentResult": {
+        "overall": "positive",
+        "score": 0.94,
+        "confidence": 0.95,
+        "summary": "Report conveys predominantly favorable sentiment (score: +0.94). Primary catalysts include Strong indicator: record, Strong indicator: expansion. No systemic balance sheet deterioration detected.",
+        "positiveSignals": [
+          {
+            "id": "pos-0",
+            "label": "Strong indicator: record",
+            "excerpt": "Apex delivered record net income of $88.",
+            "score": 0.8,
+            "sourceLocation": {
+              "line": 1,
+              "startOffset": 0,
+              "endOffset": 40
+            }
+          },
+          {
+            "id": "pos-1",
+            "label": "Strong indicator: expansion",
+            "excerpt": "4 million for the fiscal year, representing an expansion of 32% year-over-year.",
+            "score": 0.65,
+            "sourceLocation": {
+              "line": 2,
+              "startOffset": 40,
+              "endOffset": 119
+            }
+          },
+          {
+            "id": "pos-2",
+            "label": "Strong indicator: robust, efficiency",
+            "excerpt": "Robust client retention and efficiency initiatives accelerated margin expansion across all retail and commercial banking segments.",
+            "score": 3.6,
+            "sourceLocation": {
+              "line": 3,
+              "startOffset": 119,
+              "endOffset": 249
+            }
+          },
+          {
+            "id": "pos-3",
+            "label": "Strong indicator: solvency, strong",
+            "excerpt": "Solvency ratios remained exceptionally strong with a Tier-1 capital ratio of 16.",
+            "score": 1.4,
+            "sourceLocation": {
+              "line": 4,
+              "startOffset": 250,
+              "endOffset": 330
+            }
+          },
+          {
+            "id": "pos-5",
+            "label": "Strong indicator: dividends",
+            "excerpt": "Operating cash flow surplus was $94 million, enabling a 15% increase in annual dividends.",
+            "score": 0.5,
+            "sourceLocation": {
+              "line": 6,
+              "startOffset": 398,
+              "endOffset": 487
+            }
+          },
+          {
+            "id": "pos-6",
+            "label": "Strong indicator: no litigation",
+            "excerpt": "No regulatory inquiries, litigation liabilities, or debt covenant strains were reported during the audited period.",
+            "score": 0.52,
+            "sourceLocation": {
+              "line": 7,
+              "startOffset": 488,
+              "endOffset": 602
+            }
+          }
+        ],
+        "negativeSignals": [],
+        "neutralSignals": [
+          {
+            "id": "neu-4",
+            "label": "Factual disclosure",
+            "excerpt": "2%, and cash-rich balance sheet reserves increased to $410 million.",
+            "score": 0,
+            "sourceLocation": {
+              "line": 5,
+              "startOffset": 331,
+              "endOffset": 398
+            }
+          }
+        ],
+        "contradictions": [],
+        "limitations": "Deterministic domain-lexicon analysis validated against 86 words across 7 sentences. Sentiment classifications should be evaluated alongside underlying financial statements and cash-flow audits."
+      },
+      "riskResult": {
+        "overallRiskScore": 0,
+        "highestSeverity": "low",
+        "openFindingsCount": 0,
+        "severityDistribution": {
+          "low": 0,
+          "medium": 0,
+          "high": 0,
+          "critical": 0
+        },
+        "categoryDistribution": {},
+        "summary": "CLEAN RISK RECORD: No systemic financial, operational, or compliance risk indicators were detected in the supplied text."
+      },
+      "findings": [],
+      "id": "5b95bf4b-87ee-4501-ba5b-2c52be63d808",
+      "createdAt": "2026-10-10T06:39:22.267Z",
+      "updatedAt": "2026-10-10T06:39:22.267Z"
+    },
+    {
+      "userId": "1c9ba2c6-40c3-4da5-ab8c-7f7b8364da2c",
+      "documentId": null,
+      "title": "Acme Corp Q3 Liquidity & Debt Covenant Disclosure",
+      "sourceType": "pasted_text",
+      "sourceCategory": "financial_report",
+      "analysisMode": "combined",
+      "status": "completed",
+      "inputText": "During the third quarter, operating revenue contracted by 14% year-over-year to $42.5 million. Furthermore, gross margin dropped from 58% to 41% due to severe cost inflation and material shortages across our primary supply chain. Operating cash flow deficit reached $18.2 million, resulting in declining cash reserves of only $6.4 million. As a consequence of these pressures, the company experienced a covenant breach under our senior credit facility. In addition, customer churn spiked to 22% among key enterprise accounts following service outage incidents in August. Days sales outstanding rose to 84 days, compounding our cash burn rate. The company is in active discussions with lenders regarding covenant relief, but there is substantial doubt about the company's ability to continue as a going concern if secondary financing is not secured.",
+      "wordCount": 128,
+      "sentimentResult": {
+        "overall": "negative",
+        "score": -0.9,
+        "confidence": 0.95,
+        "summary": "Report reflects adverse financial sentiment (score: -0.9). Significant negative pressure identified around Adverse signal: deficit, Adverse signal: declining.",
+        "positiveSignals": [],
+        "negativeSignals": [
+          {
+            "id": "neg-3",
+            "label": "Adverse signal: deficit",
+            "excerpt": "Operating cash flow deficit reached $18.",
+            "score": -0.85,
+            "sourceLocation": {
+              "line": 4,
+              "startOffset": 229,
+              "endOffset": 269
+            }
+          },
+          {
+            "id": "neg-4",
+            "label": "Adverse signal: declining",
+            "excerpt": "2 million, resulting in declining cash reserves of only $6.",
+            "score": -0.7,
+            "sourceLocation": {
+              "line": 5,
+              "startOffset": 270,
+              "endOffset": 329
+            }
+          },
+          {
+            "id": "neg-6",
+            "label": "Adverse signal: pressures, covenant breach",
+            "excerpt": "As a consequence of these pressures, the company experienced a covenant breach under our senior credit facility.",
+            "score": -1.6,
+            "sourceLocation": {
+              "line": 7,
+              "startOffset": 339,
+              "endOffset": 451
+            }
+          },
+          {
+            "id": "neg-7",
+            "label": "Adverse signal: churn",
+            "excerpt": "In addition, customer churn spiked to 22% among key enterprise accounts following service outage incidents in August.",
+            "score": -0.75,
+            "sourceLocation": {
+              "line": 8,
+              "startOffset": 452,
+              "endOffset": 569
+            }
+          },
+          {
+            "id": "neg-8",
+            "label": "Adverse signal: burn rate",
+            "excerpt": "Days sales outstanding rose to 84 days, compounding our cash burn rate.",
+            "score": -0.75,
+            "sourceLocation": {
+              "line": 9,
+              "startOffset": 570,
+              "endOffset": 641
+            }
+          }
+        ],
+        "neutralSignals": [
+          {
+            "id": "neu-0",
+            "label": "Factual disclosure",
+            "excerpt": "During the third quarter, operating revenue contracted by 14% year-over-year to $42.",
+            "score": 0,
+            "sourceLocation": {
+              "line": 1,
+              "startOffset": 0,
+              "endOffset": 84
+            }
+          },
+          {
+            "id": "neu-2",
+            "label": "Factual disclosure",
+            "excerpt": "Furthermore, gross margin dropped from 58% to 41% due to severe cost inflation and material shortages across our primary supply chain.",
+            "score": 0,
+            "sourceLocation": {
+              "line": 3,
+              "startOffset": 94,
+              "endOffset": 228
+            }
+          }
+        ],
+        "contradictions": [],
+        "limitations": "Deterministic domain-lexicon analysis validated against 132 words across 10 sentences. Sentiment classifications should be evaluated alongside underlying financial statements and cash-flow audits."
+      },
+      "riskResult": {
+        "overallRiskScore": 100,
+        "highestSeverity": "critical",
+        "openFindingsCount": 10,
+        "severityDistribution": {
+          "low": 0,
+          "medium": 2,
+          "high": 6,
+          "critical": 2
+        },
+        "categoryDistribution": {
+          "revenue_earnings_pressure": 1,
+          "expense_margin_deterioration": 1,
+          "supply_chain_dependency": 1,
+          "liquidity_cash_flow": 2,
+          "debt_leverage": 1,
+          "customer_churn_confidence": 1,
+          "operational_disruption": 1,
+          "late_payments_collections": 1,
+          "business_continuity": 1
+        },
+        "summary": "CRITICAL RISK PROFILE DETECTED: Platform uncovered 10 risk finding(s), with severe vulnerability in Debt & Leverage Structure and Business Continuity & Going Concern. Immediate management intervention required."
+      },
+      "findings": [
+        {
+          "id": "risk-revenue_earnings_pressure-0-1",
+          "category": "revenue_earnings_pressure",
+          "categoryLabel": "Revenue & Earnings Pressure",
+          "title": "Top-Line Contraction & Earnings Vulnerability",
+          "excerpt": "During the third quarter, operating revenue contracted by 14% year-over-year to $42.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 0,
+            "endOffset": 84
+          },
+          "explanation": "Identifies negative growth trajectory or downward earnings revision (revenue contracted).",
+          "severity": "medium",
+          "severityRationale": "Sustained revenue contraction depresses operating leverage and compromises enterprise valuation.",
+          "confidence": 0.94,
+          "potentialImpact": "Compressed operating margins and negative analyst re-rating.",
+          "suggestedNextSteps": [
+            "Segment churn and cohort retention by product line.",
+            "Re-examine pricing elasticity and promotional discounts.",
+            "Review sales pipeline conversion rates and pipeline velocity."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-expense_margin_deterioration-2-2",
+          "category": "expense_margin_deterioration",
+          "categoryLabel": "Expense Growth & Margin Deterioration",
+          "title": "Operating Margin Compression & Cost Inflation",
+          "excerpt": "Furthermore, gross margin dropped from 58% to 41% due to severe cost inflation and material shortages across our primary supply chain.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 95,
+            "endOffset": 229
+          },
+          "explanation": "Notes deterioration of gross or operating margins caused by runaway expenditures or input cost inflation (gross margin dropped).",
+          "severity": "high",
+          "severityRationale": "Operating cost escalation outstrips top-line realization, eroding bottom-line profitability.",
+          "confidence": 0.94,
+          "potentialImpact": "Shrinking free cash flow conversion and diminished reinvestment capacity.",
+          "suggestedNextSteps": [
+            "Perform line-item OPEX variance audit across business units.",
+            "Renegotiate vendor contracts and introduce procurement threshold freezes.",
+            "Automate high-cost manual processing workflows."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-supply_chain_dependency-2-3",
+          "category": "supply_chain_dependency",
+          "categoryLabel": "Supply Chain Dependency",
+          "title": "Concentrated Vendor Dependency & Supply Chokepoints",
+          "excerpt": "Furthermore, gross margin dropped from 58% to 41% due to severe cost inflation and material shortages across our primary supply chain.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 95,
+            "endOffset": 229
+          },
+          "explanation": "Uncovers vulnerability to single-source suppliers or critical material procurement chokepoints (material shortages).",
+          "severity": "high",
+          "severityRationale": "A single-point supplier breakdown halts manufacturing or service fulfillment without immediate alternative sourcing.",
+          "confidence": 0.82,
+          "potentialImpact": "Severe lead time elongation, unfulfilled purchase orders, and inventory stock-outs.",
+          "suggestedNextSteps": [
+            "Qualify dual-sourcing secondary suppliers across tier-1 materials.",
+            "Maintain strategic safety stock buffers for critical components.",
+            "Audit financial health and solvency ratings of primary suppliers."
+          ],
+          "classification": "inferred",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-liquidity_cash_flow-3-4",
+          "category": "liquidity_cash_flow",
+          "categoryLabel": "Liquidity & Cash Flow Risk",
+          "title": "Acute Cash Burn & Liquidity Strain",
+          "excerpt": "Operating cash flow deficit reached $18.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 230,
+            "endOffset": 270
+          },
+          "explanation": "Discloses immediate liquidity constraints or accelerating cash burn (Operating cash flow deficit) that threaten operating solvency.",
+          "severity": "high",
+          "severityRationale": "Materiality is severe because near-term obligations cannot be sustained without external capital injection or emergency credit facilities.",
+          "confidence": 0.94,
+          "potentialImpact": "Potential inability to meet vendor obligations or debt service covenants within the next 3 to 6 months.",
+          "suggestedNextSteps": [
+            "Conduct 13-week rolling cash flow forecast.",
+            "Audit working capital requirements and defer discretionary capital expenditures.",
+            "Engage secondary lending syndicates for emergency revolving credit extension."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-liquidity_cash_flow-4-5",
+          "category": "liquidity_cash_flow",
+          "categoryLabel": "Liquidity & Cash Flow Risk",
+          "title": "Acute Cash Burn & Liquidity Strain",
+          "excerpt": "2 million, resulting in declining cash reserves of only $6.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 270,
+            "endOffset": 329
+          },
+          "explanation": "Discloses immediate liquidity constraints or accelerating cash burn (declining cash reserves) that threaten operating solvency.",
+          "severity": "high",
+          "severityRationale": "Materiality is severe because near-term obligations cannot be sustained without external capital injection or emergency credit facilities.",
+          "confidence": 0.94,
+          "potentialImpact": "Potential inability to meet vendor obligations or debt service covenants within the next 3 to 6 months.",
+          "suggestedNextSteps": [
+            "Conduct 13-week rolling cash flow forecast.",
+            "Audit working capital requirements and defer discretionary capital expenditures.",
+            "Engage secondary lending syndicates for emergency revolving credit extension."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-debt_leverage-6-6",
+          "category": "debt_leverage",
+          "categoryLabel": "Debt & Leverage Structure",
+          "title": "Elevated Leverage & Debt Covenant Exposure",
+          "excerpt": "As a consequence of these pressures, the company experienced a covenant breach under our senior credit facility.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 340,
+            "endOffset": 452
+          },
+          "explanation": "Highlights critical leverage vulnerability or impending debt covenant non-compliance (covenant breach).",
+          "severity": "critical",
+          "severityRationale": "Covenant default triggers cross-acceleration across existing senior facilities, creating systemic refinancing risk.",
+          "confidence": 0.94,
+          "potentialImpact": "Creditors may demand immediate principal prepayment or penal interest rate escalations.",
+          "suggestedNextSteps": [
+            "Review credit agreement cure periods and request formal lender waivers.",
+            "Assess debt restructuring alternatives and maturity ladder extensions.",
+            "Model debt service coverage ratio (DSCR) under stressed EBITDA scenarios."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-customer_churn_confidence-7-7",
+          "category": "customer_churn_confidence",
+          "categoryLabel": "Customer Churn & Confidence",
+          "title": "Customer Churn & Enterprise Client Attrition",
+          "excerpt": "In addition, customer churn spiked to 22% among key enterprise accounts following service outage incidents in August.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 453,
+            "endOffset": 570
+          },
+          "explanation": "Reveals escalating customer defections or non-renewal of significant enterprise accounts (customer churn spiked).",
+          "severity": "high",
+          "severityRationale": "Elevated churn erodes recurring revenue baseline and increases customer acquisition cost (CAC) payback periods.",
+          "confidence": 0.94,
+          "potentialImpact": "Persistent multi-quarter revenue drag and market share concession to competitors.",
+          "suggestedNextSteps": [
+            "Execute customer health score audits for top 20% revenue-generating accounts.",
+            "Investigate primary cancellation reasons via executive outreach.",
+            "Implement proactive SLA monitoring and customer success intervention programs."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-operational_disruption-7-8",
+          "category": "operational_disruption",
+          "categoryLabel": "Operational Disruption",
+          "title": "Core Operational Downtime & Service Interruption",
+          "excerpt": "In addition, customer churn spiked to 22% among key enterprise accounts following service outage incidents in August.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 453,
+            "endOffset": 570
+          },
+          "explanation": "Documents structural operational bottlenecks or unplanned downtime (service outage) impacting delivery.",
+          "severity": "high",
+          "severityRationale": "Core facility or infrastructure downtime immediately jeopardizes customer SLAs and contractual warranties.",
+          "confidence": 0.94,
+          "potentialImpact": "Direct contractual liquidated damages and loss of client trust.",
+          "suggestedNextSteps": [
+            "Initiate root-cause engineering review and disaster failover testing.",
+            "Establish secondary redundant cloud and operational nodes.",
+            "Verify business interruption insurance policy limits."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-late_payments_collections-8-9",
+          "category": "late_payments_collections",
+          "categoryLabel": "Late Payments & Collections",
+          "title": "DSO Extension & Counterparty Collection Delays",
+          "excerpt": "Days sales outstanding rose to 84 days, compounding our cash burn rate.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 571,
+            "endOffset": 642
+          },
+          "explanation": "Reports growing days sales outstanding (DSO) or surge in overdue customer receivables (Days sales outstanding rose).",
+          "severity": "medium",
+          "severityRationale": "Aging accounts receivable tie up operating cash in working capital and elevate default loss exposure.",
+          "confidence": 0.94,
+          "potentialImpact": "Cash drag and mandatory provision write-downs against aged ledger balances.",
+          "suggestedNextSteps": [
+            "Enforce stricter credit evaluation limits on delayed accounts.",
+            "Introduce early payment discounting (e.g. 2/10 net 30).",
+            "Escalate past-due accounts over 60 days to dedicated collection protocol."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        },
+        {
+          "id": "risk-business_continuity-9-10",
+          "category": "business_continuity",
+          "categoryLabel": "Business Continuity & Going Concern",
+          "title": "Going Concern Warning & Solvency Threat",
+          "excerpt": "The company is in active discussions with lenders regarding covenant relief, but there is substantial doubt about the company's ability to continue as a going concern if secondary financing is not secured.",
+          "sourceLocation": {
+            "line": 1,
+            "paragraph": 1,
+            "startOffset": 643,
+            "endOffset": 848
+          },
+          "explanation": "Contains explicit auditor or management disclosures questioning going-concern viability (substantial doubt about the company's ability to continue as a going concern).",
+          "severity": "critical",
+          "severityRationale": "Represents the most acute stage of enterprise risk, indicating imminent operational collapse without radical capital intervention.",
+          "confidence": 0.94,
+          "potentialImpact": "Immediate covenant liquidation, equity wipeout risk, and supplier credit withdrawal.",
+          "suggestedNextSteps": [
+            "Engage specialized turnaround advisors and insolvency counsel.",
+            "Formulate contingency liquidation or chapter reorganization plans.",
+            "Explore urgent distressed M&A or debt-for-equity recapitalization options."
+          ],
+          "classification": "explicitly_stated",
+          "isApproximateMatch": false
+        }
+      ],
+      "id": "0a57054c-c10e-4426-bce1-600402d74075",
+      "createdAt": "2026-10-10T06:39:22.258Z",
+      "updatedAt": "2026-10-10T06:39:22.258Z"
+    }
+  ],
+  "auditLogs": []
+}
