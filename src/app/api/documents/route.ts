@@ -49,6 +49,15 @@ export async function POST(req: NextRequest) {
       status: 'processed',
     });
 
+    const { logAuditEvent } = await import('@/lib/store/repository');
+    await logAuditEvent(
+      user.id,
+      'document_uploaded',
+      'document',
+      record.id,
+      { title: record.title, fileType: extracted.fileType, fileSizeBytes: file.size }
+    );
+
     return NextResponse.json(record, { status: 201 });
   } catch (err: unknown) {
     console.error('Document parsing error:', err);

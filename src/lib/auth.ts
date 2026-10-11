@@ -48,18 +48,6 @@ export async function getCurrentUser(): Promise<UserProfile | null> {
     }
   }
 
-  // 3. Fallback: Provide persistent default analyst account if in local dev
-  let defaultUser = await findUserByEmail('analyst@trinance.io');
-  if (!defaultUser) {
-    defaultUser = await createUser('analyst@trinance.io', 'Trinance2026!', 'Lead Financial Analyst');
-  }
-
-  return {
-    id: defaultUser.id,
-    email: defaultUser.email,
-    fullName: defaultUser.fullName,
-    role: defaultUser.role,
-    preferences: defaultUser.preferences,
-    createdAt: defaultUser.createdAt,
-  };
+  // Not authenticated
+  return null;
 }

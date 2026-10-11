@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   Calendar,
   X,
+  Play,
 } from 'lucide-react';
 import { DocumentRecord } from '@/lib/types';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/Card';
@@ -191,8 +192,15 @@ export const DocumentLibrary: React.FC<DocumentLibraryProps> = ({ initialDocumen
                       <td className="py-3.5 px-4 text-right">
                         <div className="flex items-center justify-end gap-1.5">
                           <button
+                            onClick={() => router.push(`/dashboard/analyze?docId=${doc.id}`)}
+                            className="p-1.5 rounded text-slate-500 hover:text-emerald-700 hover:bg-emerald-50 transition-colors"
+                            title="Run Intelligence Analysis"
+                          >
+                            <Play className="w-4 h-4" />
+                          </button>
+                          <button
                             onClick={() => setPreviewDoc(doc)}
-                            className="p-1.5 rounded text-slate-500 hover:text-brand-navy hover:bg-slate-100"
+                            className="p-1.5 rounded text-slate-500 hover:text-brand-navy hover:bg-slate-100 transition-colors"
                             title="Preview Extracted Text"
                           >
                             <Eye className="w-4 h-4" />

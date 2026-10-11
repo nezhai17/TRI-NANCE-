@@ -170,12 +170,19 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ user }) => {
 
     setIsDeletingAccount(true);
     try {
-      // Execute account logout and removal
-      await fetch('/api/auth/logout', { method: 'POST' });
+      const res = await fetch('/api/auth/user', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: deletePassword }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to delete account.');
+      }
       router.push('/login');
       router.refresh();
-    } catch {
-      setDeleteError('Failed to execute account purge.');
+    } catch (err: unknown) {
+      setDeleteError(err instanceof Error ? err.message : 'Failed to execute account purge.');
       setIsDeletingAccount(false);
     }
   };

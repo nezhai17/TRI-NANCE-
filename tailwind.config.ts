@@ -10,16 +10,17 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          navy: "#172B4D",
-          deep: "#101D35",
-          accent: "#4263A5",
-          border: "#E4E9F0",
-          bg: "#F6F8FB",
+          deep: "#111D32",
+          navy: "#192C49",
+          accent: "#46699D",
+          border: "#E2E7EF",
+          borderSubtle: "#EEF2F7",
+          bg: "#F5F7FA",
           surface: "#FFFFFF",
           text: {
-            primary: "#1D2939",
-            secondary: "#667085",
-            muted: "#98A2B3",
+            primary: "#202B3C",
+            secondary: "#697586",
+            muted: "#9AA4B2",
           },
           positive: {
             DEFAULT: "#12B76A",
@@ -37,14 +38,15 @@ const config: Config = {
             dark: "#B42318",
           },
           neutral: {
-            DEFAULT: "#667085",
-            light: "#F2F4F7",
-            dark: "#344054",
+            DEFAULT: "#697586",
+            light: "#EEF2F7",
+            dark: "#202B3C",
           },
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "-apple-system", "sans-serif"],
+        sans: ["var(--font-geist-sans)", "var(--font-inter)", "system-ui", "-apple-system", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
     },
   },

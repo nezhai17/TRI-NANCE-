@@ -18,6 +18,7 @@ import {
   ChevronRight,
   X,
   RotateCcw,
+  FolderArchive,
 } from 'lucide-react';
 import { AnalysisRecord, SentimentClass, RiskSeverity } from '@/lib/types';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/Card';
@@ -245,15 +246,48 @@ export const RecentAnalysesTable: React.FC<RecentAnalysesTableProps> = ({
       </CardHeader>
 
       <CardContent className="p-0">
-        {filtered.length === 0 ? (
+        {analyses.length === 0 ? (
+          <div className="py-14 px-6 text-center space-y-3">
+            <div className="w-12 h-12 rounded-2xl bg-brand-navy/5 border border-brand-navy/10 flex items-center justify-center mx-auto text-brand-navy">
+              <FolderArchive className="w-6 h-6" />
+            </div>
+            <h4 className="text-sm font-bold text-brand-text-primary">No Financial Dossiers Ingested Yet</h4>
+            <p className="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
+              Upload SEC filings (10-K, 10-Q), earnings call transcripts, or paste corporate commentary to generate verified sentiment scores, 12-category risk patterns, and management diligence inquiries.
+            </p>
+            <div className="flex items-center justify-center gap-3 pt-2">
+              <Link href="/dashboard/analyze">
+                <Button size="sm" variant="primary">
+                  Run First Analysis
+                </Button>
+              </Link>
+              <Link href="/dashboard/analyze?sample=meridian">
+                <Button size="sm" variant="outline">
+                  Load Sample 10-K
+                </Button>
+              </Link>
+            </div>
+          </div>
+        ) : filtered.length === 0 ? (
           <div className="py-12 text-center space-y-2">
             <AlertCircle className="w-8 h-8 text-slate-300 mx-auto" />
-            <p className="text-sm font-medium text-slate-600">No matching analyses found</p>
+            <p className="text-sm font-medium text-slate-700">No matching analyses found</p>
             <p className="text-xs text-slate-400">
-              {search || sentimentFilter !== 'all' || severityFilter !== 'all' || sourceTypeFilter !== 'all' || dateRangeFilter !== 'all'
-                ? 'Try adjusting your search query or reset filter settings.'
-                : 'Run an analysis to generate persistent risk intelligence reports.'}
+              Try adjusting your search query or reset filter settings.
             </p>
+            <button
+              onClick={() => {
+                setSearch('');
+                setSentimentFilter('all');
+                setSeverityFilter('all');
+                setSourceTypeFilter('all');
+                setDateRangeFilter('all');
+              }}
+              className="inline-flex items-center gap-1.5 text-xs text-brand-accent hover:underline font-medium pt-1"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              Reset All Filters
+            </button>
           </div>
         ) : (
           <>

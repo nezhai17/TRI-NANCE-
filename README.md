@@ -19,7 +19,12 @@ Tri-nance is a financial sentiment and multi-category risk intelligence SaaS pla
   - **Production Target**: Supabase Auth & PostgreSQL with Row Level Security (RLS) policies (`supabase/migrations/01_initial_schema.sql`)
   - **Local / Resilient Engine**: Local persistent JSON/SQLite store with SHA-256 salted password hashing and secure HTTP-only cookies
 - **Security**: Formula-injection protected CSV exporter (`=`, `+`, `-`, `@`, `\t` escaping) and sanitized JSON exporter
-- **Testing**: Vitest test runner (17 automated unit and integration tests)
+- **Epistemic Uncertainty & Information Gap Modeling**: Loughran-McDonald uncertainty lexicon tracking, hedged claims isolation, calibrated confidence rationales, and explicit callout of what the disclosure leaves unsaid
+- **Investigative Diligence & Inquiry Checklist**: Targeted diligence questions for earnings calls and management meetings, footnote cross-references, and copyable analyst audit queries
+- **Investigations & Audit Governance**: Full review lifecycle triage (`open`, `under_review`, `resolved`, `dismissed`), mandatory dismissal rationale enforcement, and chronological analyst notes thread
+- **Cross-Document Comparative Engine**: Multi-period trajectory tracking, recurring risk theme extraction, newly observed risk isolation, and inter-document contradiction identification
+- **Financial Numerical Extractor & Variance Calculator**: Deterministic metric parsing and standard-aligned baseline variance calculation handling zero and negative baselines
+- **Testing**: Vitest test runner (28 automated unit and integration tests across 6 test suites)
 
 ---
 
@@ -51,11 +56,12 @@ npm install
 ```bash
 npm test
 ```
-Executes all 17 unit and integration tests across sentiment scoring, risk pattern detection, evidence verification, and CSV formula sanitization.
+Executes all 28 unit and integration tests across sentiment scoring, risk pattern detection, evidence verification, CSV formula sanitization, numerical metric extraction, uncertainty modeling, and cross-document comparative audits.
 
-### 3. Start Development Server
+### 3. Build & Run Production Server
 ```bash
-npm run dev
+npm run build
+npm run start
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 

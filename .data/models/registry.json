@@ -1,0 +1,1016 @@
+[
+  {
+    "id": "model-sentiment_classification-multinomial_naive_bayes-v2026.10.11-xfo6",
+    "version": "v2026.10.11-xfo6",
+    "name": "TriNance Multinomial Naive Bayes (Laplace α=1.0) (sentiment_classification)",
+    "task": "sentiment_classification",
+    "algorithm": "multinomial_naive_bayes",
+    "state": "active_production",
+    "metrics": {
+      "macroF1": 0.2714,
+      "weightedF1": 0.2457,
+      "accuracy": 0.3,
+      "brierScore": 0.1843,
+      "perClass": {
+        "mixed": {
+          "className": "mixed",
+          "precision": 0,
+          "recall": 0,
+          "f1Score": 0,
+          "support": 2
+        },
+        "negative": {
+          "className": "negative",
+          "precision": 0,
+          "recall": 0,
+          "f1Score": 0,
+          "support": 3
+        },
+        "neutral": {
+          "className": "neutral",
+          "precision": 0.6667,
+          "recall": 1,
+          "f1Score": 0.8,
+          "support": 2
+        },
+        "positive": {
+          "className": "positive",
+          "precision": 0.25,
+          "recall": 0.3333,
+          "f1Score": 0.2857,
+          "support": 3
+        }
+      },
+      "confusionMatrix": {
+        "labels": [
+          "mixed",
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            1
+          ]
+        ],
+        "details": [
+          {
+            "actual": "mixed",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "mixed",
+            "predicted": "negative",
+            "count": 1
+          },
+          {
+            "actual": "mixed",
+            "predicted": "neutral",
+            "count": 0
+          },
+          {
+            "actual": "mixed",
+            "predicted": "positive",
+            "count": 1
+          },
+          {
+            "actual": "negative",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "negative",
+            "predicted": "negative",
+            "count": 0
+          },
+          {
+            "actual": "negative",
+            "predicted": "neutral",
+            "count": 1
+          },
+          {
+            "actual": "negative",
+            "predicted": "positive",
+            "count": 2
+          },
+          {
+            "actual": "neutral",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "neutral",
+            "predicted": "negative",
+            "count": 0
+          },
+          {
+            "actual": "neutral",
+            "predicted": "neutral",
+            "count": 2
+          },
+          {
+            "actual": "neutral",
+            "predicted": "positive",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "negative",
+            "count": 2
+          },
+          {
+            "actual": "positive",
+            "predicted": "neutral",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "positive",
+            "count": 1
+          }
+        ]
+      },
+      "testSampleCount": 10,
+      "evaluatedAt": "2026-10-11T03:38:57.558Z"
+    },
+    "artifactPath": "C:\\Users\\Sai Krishna\\Documents\\Tri-Nance\\.data\\models\\model-sentiment_classification-multinomial_naive_bayes-v2026.10.11-xfo6.json",
+    "trainingSamplesCount": 50,
+    "testSamplesCount": 10,
+    "createdAt": "2026-10-11T03:38:57.558Z",
+    "updatedAt": "2026-10-11T03:38:57.577Z",
+    "deployedAt": "2026-10-11T03:38:57.577Z",
+    "notes": "Trained and selected by multi-algorithm benchmark pipeline (Validation Macro F1: 12.5%)"
+  },
+  {
+    "id": "model-sentiment_classification-multinomial_naive_bayes-v2026.10.10-h0ou",
+    "version": "v2026.10.10-h0ou",
+    "name": "TriNance Multinomial Naive Bayes (Laplace α=1.0) (sentiment_classification)",
+    "task": "sentiment_classification",
+    "algorithm": "multinomial_naive_bayes",
+    "state": "approved",
+    "metrics": {
+      "macroF1": 0.2714,
+      "weightedF1": 0.2457,
+      "accuracy": 0.3,
+      "brierScore": 0.1843,
+      "perClass": {
+        "mixed": {
+          "className": "mixed",
+          "precision": 0,
+          "recall": 0,
+          "f1Score": 0,
+          "support": 2
+        },
+        "negative": {
+          "className": "negative",
+          "precision": 0,
+          "recall": 0,
+          "f1Score": 0,
+          "support": 3
+        },
+        "neutral": {
+          "className": "neutral",
+          "precision": 0.6667,
+          "recall": 1,
+          "f1Score": 0.8,
+          "support": 2
+        },
+        "positive": {
+          "className": "positive",
+          "precision": 0.25,
+          "recall": 0.3333,
+          "f1Score": 0.2857,
+          "support": 3
+        }
+      },
+      "confusionMatrix": {
+        "labels": [
+          "mixed",
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            1
+          ]
+        ],
+        "details": [
+          {
+            "actual": "mixed",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "mixed",
+            "predicted": "negative",
+            "count": 1
+          },
+          {
+            "actual": "mixed",
+            "predicted": "neutral",
+            "count": 0
+          },
+          {
+            "actual": "mixed",
+            "predicted": "positive",
+            "count": 1
+          },
+          {
+            "actual": "negative",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "negative",
+            "predicted": "negative",
+            "count": 0
+          },
+          {
+            "actual": "negative",
+            "predicted": "neutral",
+            "count": 1
+          },
+          {
+            "actual": "negative",
+            "predicted": "positive",
+            "count": 2
+          },
+          {
+            "actual": "neutral",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "neutral",
+            "predicted": "negative",
+            "count": 0
+          },
+          {
+            "actual": "neutral",
+            "predicted": "neutral",
+            "count": 2
+          },
+          {
+            "actual": "neutral",
+            "predicted": "positive",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "negative",
+            "count": 2
+          },
+          {
+            "actual": "positive",
+            "predicted": "neutral",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "positive",
+            "count": 1
+          }
+        ]
+      },
+      "testSampleCount": 10,
+      "evaluatedAt": "2026-10-10T23:14:15.102Z"
+    },
+    "artifactPath": "C:\\Users\\Sai Krishna\\Documents\\Tri-Nance\\.data\\models\\model-sentiment_classification-multinomial_naive_bayes-v2026.10.10-h0ou.json",
+    "trainingSamplesCount": 50,
+    "testSamplesCount": 10,
+    "createdAt": "2026-10-10T23:14:15.102Z",
+    "updatedAt": "2026-10-11T03:38:57.577Z",
+    "deployedAt": "2026-10-10T23:14:15.107Z",
+    "notes": "Trained and selected by multi-algorithm benchmark pipeline (Validation Macro F1: 12.5%)"
+  },
+  {
+    "id": "model-sentiment_classification-multinomial_naive_bayes-v2026.10.10-grma",
+    "version": "v2026.10.10-grma",
+    "name": "TriNance Multinomial Naive Bayes (Laplace α=1.0) (sentiment_classification)",
+    "task": "sentiment_classification",
+    "algorithm": "multinomial_naive_bayes",
+    "state": "approved",
+    "metrics": {
+      "macroF1": 0.2714,
+      "weightedF1": 0.2457,
+      "accuracy": 0.3,
+      "brierScore": 0.1843,
+      "perClass": {
+        "mixed": {
+          "className": "mixed",
+          "precision": 0,
+          "recall": 0,
+          "f1Score": 0,
+          "support": 2
+        },
+        "negative": {
+          "className": "negative",
+          "precision": 0,
+          "recall": 0,
+          "f1Score": 0,
+          "support": 3
+        },
+        "neutral": {
+          "className": "neutral",
+          "precision": 0.6667,
+          "recall": 1,
+          "f1Score": 0.8,
+          "support": 2
+        },
+        "positive": {
+          "className": "positive",
+          "precision": 0.25,
+          "recall": 0.3333,
+          "f1Score": 0.2857,
+          "support": 3
+        }
+      },
+      "confusionMatrix": {
+        "labels": [
+          "mixed",
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            1
+          ]
+        ],
+        "details": [
+          {
+            "actual": "mixed",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "mixed",
+            "predicted": "negative",
+            "count": 1
+          },
+          {
+            "actual": "mixed",
+            "predicted": "neutral",
+            "count": 0
+          },
+          {
+            "actual": "mixed",
+            "predicted": "positive",
+            "count": 1
+          },
+          {
+            "actual": "negative",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "negative",
+            "predicted": "negative",
+            "count": 0
+          },
+          {
+            "actual": "negative",
+            "predicted": "neutral",
+            "count": 1
+          },
+          {
+            "actual": "negative",
+            "predicted": "positive",
+            "count": 2
+          },
+          {
+            "actual": "neutral",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "neutral",
+            "predicted": "negative",
+            "count": 0
+          },
+          {
+            "actual": "neutral",
+            "predicted": "neutral",
+            "count": 2
+          },
+          {
+            "actual": "neutral",
+            "predicted": "positive",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "negative",
+            "count": 2
+          },
+          {
+            "actual": "positive",
+            "predicted": "neutral",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "positive",
+            "count": 1
+          }
+        ]
+      },
+      "testSampleCount": 10,
+      "evaluatedAt": "2026-10-10T23:14:03.346Z"
+    },
+    "artifactPath": "C:\\Users\\Sai Krishna\\Documents\\Tri-Nance\\.data\\models\\model-sentiment_classification-multinomial_naive_bayes-v2026.10.10-grma.json",
+    "trainingSamplesCount": 50,
+    "testSamplesCount": 10,
+    "createdAt": "2026-10-10T23:14:03.346Z",
+    "updatedAt": "2026-10-10T23:14:15.107Z",
+    "deployedAt": "2026-10-10T23:14:03.352Z",
+    "notes": "Trained and selected by multi-algorithm benchmark pipeline (Validation Macro F1: 12.5%)"
+  },
+  {
+    "id": "model-sentiment_classification-multinomial_naive_bayes-v2026.10.10-fgfh",
+    "version": "v2026.10.10-fgfh",
+    "name": "TriNance Multinomial Naive Bayes (Laplace α=1.0) (sentiment_classification)",
+    "task": "sentiment_classification",
+    "algorithm": "multinomial_naive_bayes",
+    "state": "approved",
+    "metrics": {
+      "macroF1": 0.2714,
+      "weightedF1": 0.2457,
+      "accuracy": 0.3,
+      "brierScore": 0.1843,
+      "perClass": {
+        "mixed": {
+          "className": "mixed",
+          "precision": 0,
+          "recall": 0,
+          "f1Score": 0,
+          "support": 2
+        },
+        "negative": {
+          "className": "negative",
+          "precision": 0,
+          "recall": 0,
+          "f1Score": 0,
+          "support": 3
+        },
+        "neutral": {
+          "className": "neutral",
+          "precision": 0.6667,
+          "recall": 1,
+          "f1Score": 0.8,
+          "support": 2
+        },
+        "positive": {
+          "className": "positive",
+          "precision": 0.25,
+          "recall": 0.3333,
+          "f1Score": 0.2857,
+          "support": 3
+        }
+      },
+      "confusionMatrix": {
+        "labels": [
+          "mixed",
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            1
+          ]
+        ],
+        "details": [
+          {
+            "actual": "mixed",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "mixed",
+            "predicted": "negative",
+            "count": 1
+          },
+          {
+            "actual": "mixed",
+            "predicted": "neutral",
+            "count": 0
+          },
+          {
+            "actual": "mixed",
+            "predicted": "positive",
+            "count": 1
+          },
+          {
+            "actual": "negative",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "negative",
+            "predicted": "negative",
+            "count": 0
+          },
+          {
+            "actual": "negative",
+            "predicted": "neutral",
+            "count": 1
+          },
+          {
+            "actual": "negative",
+            "predicted": "positive",
+            "count": 2
+          },
+          {
+            "actual": "neutral",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "neutral",
+            "predicted": "negative",
+            "count": 0
+          },
+          {
+            "actual": "neutral",
+            "predicted": "neutral",
+            "count": 2
+          },
+          {
+            "actual": "neutral",
+            "predicted": "positive",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "negative",
+            "count": 2
+          },
+          {
+            "actual": "positive",
+            "predicted": "neutral",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "positive",
+            "count": 1
+          }
+        ]
+      },
+      "testSampleCount": 10,
+      "evaluatedAt": "2026-10-10T23:13:02.189Z"
+    },
+    "artifactPath": "C:\\Users\\Sai Krishna\\Documents\\Tri-Nance\\.data\\models\\model-sentiment_classification-multinomial_naive_bayes-v2026.10.10-fgfh.json",
+    "trainingSamplesCount": 50,
+    "testSamplesCount": 10,
+    "createdAt": "2026-10-10T23:13:02.189Z",
+    "updatedAt": "2026-10-10T23:14:03.352Z",
+    "deployedAt": "2026-10-10T23:13:02.200Z",
+    "notes": "Trained via multi-algorithm benchmarking pipeline"
+  },
+  {
+    "id": "model-sentiment_classification-multinomial_naive_bayes-v2026.10.10-bvfs",
+    "version": "v2026.10.10-bvfs",
+    "name": "TriNance Multinomial Naive Bayes (Laplace α=1.0) (sentiment_classification)",
+    "task": "sentiment_classification",
+    "algorithm": "multinomial_naive_bayes",
+    "state": "approved",
+    "metrics": {
+      "macroF1": 0.2714,
+      "weightedF1": 0.2457,
+      "accuracy": 0.3,
+      "brierScore": 0.1843,
+      "perClass": {
+        "mixed": {
+          "className": "mixed",
+          "precision": 0,
+          "recall": 0,
+          "f1Score": 0,
+          "support": 2
+        },
+        "negative": {
+          "className": "negative",
+          "precision": 0,
+          "recall": 0,
+          "f1Score": 0,
+          "support": 3
+        },
+        "neutral": {
+          "className": "neutral",
+          "precision": 0.6667,
+          "recall": 1,
+          "f1Score": 0.8,
+          "support": 2
+        },
+        "positive": {
+          "className": "positive",
+          "precision": 0.25,
+          "recall": 0.3333,
+          "f1Score": 0.2857,
+          "support": 3
+        }
+      },
+      "confusionMatrix": {
+        "labels": [
+          "mixed",
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            1
+          ]
+        ],
+        "details": [
+          {
+            "actual": "mixed",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "mixed",
+            "predicted": "negative",
+            "count": 1
+          },
+          {
+            "actual": "mixed",
+            "predicted": "neutral",
+            "count": 0
+          },
+          {
+            "actual": "mixed",
+            "predicted": "positive",
+            "count": 1
+          },
+          {
+            "actual": "negative",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "negative",
+            "predicted": "negative",
+            "count": 0
+          },
+          {
+            "actual": "negative",
+            "predicted": "neutral",
+            "count": 1
+          },
+          {
+            "actual": "negative",
+            "predicted": "positive",
+            "count": 2
+          },
+          {
+            "actual": "neutral",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "neutral",
+            "predicted": "negative",
+            "count": 0
+          },
+          {
+            "actual": "neutral",
+            "predicted": "neutral",
+            "count": 2
+          },
+          {
+            "actual": "neutral",
+            "predicted": "positive",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "negative",
+            "count": 2
+          },
+          {
+            "actual": "positive",
+            "predicted": "neutral",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "positive",
+            "count": 1
+          }
+        ]
+      },
+      "testSampleCount": 10,
+      "evaluatedAt": "2026-10-10T23:10:15.016Z"
+    },
+    "artifactPath": "C:\\Users\\Sai Krishna\\Documents\\Tri-Nance\\.data\\models\\model-sentiment_classification-multinomial_naive_bayes-v2026.10.10-bvfs.json",
+    "trainingSamplesCount": 50,
+    "testSamplesCount": 10,
+    "createdAt": "2026-10-10T23:10:15.016Z",
+    "updatedAt": "2026-10-10T23:13:02.200Z",
+    "deployedAt": "2026-10-10T23:10:15.025Z",
+    "notes": "Trained via multi-algorithm benchmarking pipeline"
+  },
+  {
+    "id": "model-sentiment_classification-complement_naive_bayes-v2026.10.10-bf67",
+    "version": "v2026.10.10-bf67",
+    "name": "TriNance Complement Naive Bayes (Imbalance-Weighted) (sentiment_classification)",
+    "task": "sentiment_classification",
+    "algorithm": "complement_naive_bayes",
+    "state": "approved",
+    "metrics": {
+      "macroF1": 0.0833,
+      "weightedF1": 0.1,
+      "accuracy": 0.1,
+      "brierScore": 0.1875,
+      "perClass": {
+        "mixed": {
+          "className": "mixed",
+          "precision": 0,
+          "recall": 0,
+          "f1Score": 0,
+          "support": 2
+        },
+        "negative": {
+          "className": "negative",
+          "precision": 0.3333,
+          "recall": 0.3333,
+          "f1Score": 0.3333,
+          "support": 3
+        },
+        "neutral": {
+          "className": "neutral",
+          "precision": 0,
+          "recall": 0,
+          "f1Score": 0,
+          "support": 2
+        },
+        "positive": {
+          "className": "positive",
+          "precision": 0,
+          "recall": 0,
+          "f1Score": 0,
+          "support": 3
+        }
+      },
+      "confusionMatrix": {
+        "labels": [
+          "mixed",
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "matrix": [
+          [
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            2,
+            0
+          ]
+        ],
+        "details": [
+          {
+            "actual": "mixed",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "mixed",
+            "predicted": "negative",
+            "count": 1
+          },
+          {
+            "actual": "mixed",
+            "predicted": "neutral",
+            "count": 1
+          },
+          {
+            "actual": "mixed",
+            "predicted": "positive",
+            "count": 0
+          },
+          {
+            "actual": "negative",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "negative",
+            "predicted": "negative",
+            "count": 1
+          },
+          {
+            "actual": "negative",
+            "predicted": "neutral",
+            "count": 1
+          },
+          {
+            "actual": "negative",
+            "predicted": "positive",
+            "count": 1
+          },
+          {
+            "actual": "neutral",
+            "predicted": "mixed",
+            "count": 0
+          },
+          {
+            "actual": "neutral",
+            "predicted": "negative",
+            "count": 1
+          },
+          {
+            "actual": "neutral",
+            "predicted": "neutral",
+            "count": 0
+          },
+          {
+            "actual": "neutral",
+            "predicted": "positive",
+            "count": 1
+          },
+          {
+            "actual": "positive",
+            "predicted": "mixed",
+            "count": 1
+          },
+          {
+            "actual": "positive",
+            "predicted": "negative",
+            "count": 0
+          },
+          {
+            "actual": "positive",
+            "predicted": "neutral",
+            "count": 2
+          },
+          {
+            "actual": "positive",
+            "predicted": "positive",
+            "count": 0
+          }
+        ]
+      },
+      "testSampleCount": 10,
+      "evaluatedAt": "2026-10-10T23:09:53.935Z"
+    },
+    "artifactPath": "C:\\Users\\Sai Krishna\\Documents\\Tri-Nance\\.data\\models\\model-sentiment_classification-complement_naive_bayes-v2026.10.10-bf67.json",
+    "trainingSamplesCount": 50,
+    "testSamplesCount": 10,
+    "createdAt": "2026-10-10T23:09:53.936Z",
+    "updatedAt": "2026-10-10T23:10:15.025Z",
+    "deployedAt": "2026-10-10T23:09:53.945Z",
+    "notes": "Trained via multi-algorithm benchmarking pipeline"
+  }
+]

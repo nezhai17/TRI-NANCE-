@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import {
   FileText,
   UploadCloud,
@@ -54,6 +54,7 @@ const SAMPLE_TEXTS = [
 
 export const AnalysisWorkspace: React.FC = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   // Mode: paste vs upload
   const [activeTab, setActiveTab] = useState<'paste' | 'upload'>('paste');
@@ -72,6 +73,36 @@ export const AnalysisWorkspace: React.FC = () => {
   const [uploading, setUploading] = useState(false);
   const [extractedPreview, setExtractedPreview] = useState<string>('');
   const [uploadedDocId, setUploadedDocId] = useState<string | null>(null);
+
+  // Handle URL query parameters (?sample=... or ?docId=...)
+  useEffect(() => {
+    const sampleParam = searchParams.get('sample');
+    const docIdParam = searchParams.get('docId');
+
+    if (sampleParam) {
+      const idx = sampleParam === 'meridian' || sampleParam === 'debt' ? 0 : 1;
+      const sample = SAMPLE_TEXTS[idx] || SAMPLE_TEXTS[0];
+      setTitle(sample.title);
+      setSourceCategory(sample.category);
+      setIndustry(sample.industry);
+      setReportingPeriod(sample.period);
+      setAnalyticalQuestion(sample.question);
+      setPastedText(sample.text);
+      setActiveTab('paste');
+    } else if (docIdParam) {
+      fetch(`/api/documents/${docIdParam}`)
+        .then((res) => (res.ok ? res.json() : null))
+        .then((doc) => {
+          if (doc && doc.extractedText) {
+            setTitle(doc.title);
+            setUploadedDocId(doc.id);
+            setPastedText(doc.extractedText);
+            setActiveTab('paste');
+          }
+        })
+        .catch(() => {});
+    }
+  }, [searchParams]);
 
   // Submission State
   const [isSubmitting, setIsSubmitting] = useState(false);

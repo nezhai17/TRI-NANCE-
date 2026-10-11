@@ -1,6 +1,7 @@
 import { getCurrentUser } from '@/lib/auth';
 import { listAnalyses } from '@/lib/store/repository';
 import { RecentAnalysesTable } from '@/components/dashboard/RecentAnalysesTable';
+import { ActivityStream } from '@/components/dashboard/ActivityStream';
 
 export default async function HistoryPage() {
   const user = await getCurrentUser();
@@ -9,6 +10,7 @@ export default async function HistoryPage() {
   return (
     <div className="space-y-6">
       <RecentAnalysesTable initialAnalyses={analyses} />
+      <ActivityStream />
     </div>
   );
 }

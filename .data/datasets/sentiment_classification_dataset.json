@@ -1,0 +1,338 @@
+[
+  {
+    "text": "Operating revenue expanded by 18.4% year-over-year, driven by exceptional software subscription growth and margin expansion.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "positive",
+    "sourceCategory": "financial_report",
+    "provenance": "SEC 10-K Consolidated Statements of Operations",
+    "id": "ds-sentiment_classification-mv30bf2w-0"
+  },
+  {
+    "text": "Free cash flow reached record levels of $420 million, allowing management to accelerate debt retirement and dividend returns.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "positive",
+    "sourceCategory": "financial_report",
+    "provenance": "Annual Financial Review",
+    "id": "ds-sentiment_classification-mv30bf2w-1"
+  },
+  {
+    "text": "The company outperformed consensus quarterly expectations, delivering record earnings per share and positive operating leverage.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "positive",
+    "sourceCategory": "earnings_call",
+    "provenance": "Q3 Earnings Conference Call Transcript",
+    "id": "ds-sentiment_classification-mv30bf2w-2"
+  },
+  {
+    "text": "Management successfully negotiated favorable loan refinancing terms, reducing annual interest expense by 140 basis points.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "positive",
+    "sourceCategory": "management_writeup",
+    "provenance": "Treasury Management Memorandum",
+    "id": "ds-sentiment_classification-mv30bf2w-3"
+  },
+  {
+    "text": "Gross profit margins expanded 320 basis points as automation investments lowered unit production costs across all manufacturing facilities.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "positive",
+    "sourceCategory": "financial_report",
+    "provenance": "Form 10-Q Item 2 MD&A",
+    "id": "ds-sentiment_classification-mv30bf2w-4"
+  },
+  {
+    "text": "Customer retention reached an all-time high of 98.2%, reflecting strong enterprise satisfaction and high platform engagement.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "positive",
+    "sourceCategory": "customer_feedback",
+    "provenance": "SaaS Operational Cohort Summary",
+    "id": "ds-sentiment_classification-mv30bf2w-5"
+  },
+  {
+    "text": "Liquidity reserves remain robust with over $1.2 billion in cash equivalents and an undrawn revolving credit facility.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "positive",
+    "sourceCategory": "financial_report",
+    "provenance": "Liquidity & Capital Resources Disclosures",
+    "id": "ds-sentiment_classification-mv30bf2w-6"
+  },
+  {
+    "text": "The new payments portal resolved settlement delays immediately; transaction processing speed improved threefold.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "positive",
+    "sourceCategory": "customer_feedback",
+    "provenance": "Customer Enterprise Case Study",
+    "id": "ds-sentiment_classification-mv30bf2w-7"
+  },
+  {
+    "text": "Commercial demand rebounded sharply across EMEA and Asia-Pacific markets, generating an unexpected 12% revenue upside.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "positive",
+    "sourceCategory": "news_commentary",
+    "provenance": "Regional Business Intelligence Dispatch",
+    "id": "ds-sentiment_classification-mv30bf2w-8"
+  },
+  {
+    "text": "We achieved profitable unit economics ahead of schedule, with positive adjusted EBITDA in all core operating subsidiaries.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "positive",
+    "sourceCategory": "management_writeup",
+    "provenance": "Shareholder Annual Letter",
+    "id": "ds-sentiment_classification-mv30bf2w-9"
+  },
+  {
+    "text": "Working capital turnover accelerated, reducing cash conversion cycle days from 48 days down to 34 days.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "positive",
+    "sourceCategory": "financial_report",
+    "provenance": "Working Capital Disclosures",
+    "id": "ds-sentiment_classification-mv30bf2w-a"
+  },
+  {
+    "text": "The product quality and support responsiveness are outstanding; billing reconciliation errors have dropped to zero.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "positive",
+    "sourceCategory": "customer_feedback",
+    "provenance": "Enterprise Partner Review",
+    "id": "ds-sentiment_classification-mv30bf2w-b"
+  },
+  {
+    "text": "Net losses widened significantly due to severe customer attrition, inventory write-downs, and deteriorating sales pipelines.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "negative",
+    "sourceCategory": "financial_report",
+    "provenance": "Form 10-K Management Discussion & Analysis",
+    "id": "ds-sentiment_classification-mv30bf2w-c"
+  },
+  {
+    "text": "The auditor issued an explanatory paragraph expressing substantial doubt regarding our ability to continue as a going concern.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "negative",
+    "sourceCategory": "financial_report",
+    "provenance": "Independent Auditor Report Note 2",
+    "id": "ds-sentiment_classification-mv30bf2w-d"
+  },
+  {
+    "text": "We breached our maximum leverage covenant with syndicated lenders, triggering immediate default notices and interest rate penalties.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "negative",
+    "sourceCategory": "regulatory_filing",
+    "provenance": "Form 8-K Current Report Item 2.04",
+    "id": "ds-sentiment_classification-mv30bf2w-e"
+  },
+  {
+    "text": "Customer complaints regarding double billing and unauthorized subscription renewals increased by 140% this quarter.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "negative",
+    "sourceCategory": "customer_feedback",
+    "provenance": "Customer Dispute Log",
+    "id": "ds-sentiment_classification-mv30bf2w-f"
+  },
+  {
+    "text": "Severe supply chain bottlenecks caused complete manufacturing shutdowns, resulting in cancelled orders and unfulfilled commitments.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "negative",
+    "sourceCategory": "management_writeup",
+    "provenance": "Operational Disruption Report",
+    "id": "ds-sentiment_classification-mv30bf2w-g"
+  },
+  {
+    "text": "Operating cash burn intensified to negative $85 million, leaving only three months of estimated liquidity runway.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "negative",
+    "sourceCategory": "financial_report",
+    "provenance": "Treasury Solvency Audit",
+    "id": "ds-sentiment_classification-mv30bf2w-h"
+  },
+  {
+    "text": "The SEC initiated a formal investigation regarding accounting discrepancies and delayed revenue recognition practices.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "negative",
+    "sourceCategory": "regulatory_filing",
+    "provenance": "Item 3 Legal Proceedings",
+    "id": "ds-sentiment_classification-mv30bf2w-i"
+  },
+  {
+    "text": "Service response times are abysmal; our account has been locked for two weeks without escalation or resolution.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "negative",
+    "sourceCategory": "customer_feedback",
+    "provenance": "High-Priority Support Ticket Escalation",
+    "id": "ds-sentiment_classification-mv30bf2w-j"
+  },
+  {
+    "text": "Operating margins compressed by 540 basis points due to relentless raw material inflation and discounting pressure.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "negative",
+    "sourceCategory": "earnings_call",
+    "provenance": "Earnings Call Q&A",
+    "id": "ds-sentiment_classification-mv30bf2w-k"
+  },
+  {
+    "text": "Repeated payment gateway failures prevented customers from checking out, destroying customer goodwill and immediate transaction revenue.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "negative",
+    "sourceCategory": "customer_feedback",
+    "provenance": "Incident Retrospective Log",
+    "id": "ds-sentiment_classification-mv30bf2w-l"
+  },
+  {
+    "text": "Substantial receivables write-offs were incurred after a major wholesale counterparty declared Chapter 11 bankruptcy.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "negative",
+    "sourceCategory": "financial_report",
+    "provenance": "Allowance for Credit Losses Note 4",
+    "id": "ds-sentiment_classification-mv30bf2w-m"
+  },
+  {
+    "text": "We were forced to suspend dividends and freeze capital expenditures following a steep credit rating downgrade.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "negative",
+    "sourceCategory": "news_commentary",
+    "provenance": "Credit Rating Agency Downgrade Notice",
+    "id": "ds-sentiment_classification-mv30bf2w-n"
+  },
+  {
+    "text": "The company completed its scheduled annual reassessment of property, plant, and equipment useful asset lives.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "neutral",
+    "sourceCategory": "financial_report",
+    "provenance": "Note 1 Summary of Significant Accounting Policies",
+    "id": "ds-sentiment_classification-mv30bf2w-o"
+  },
+  {
+    "text": "Consolidated revenues for the fiscal period totaled $850 million compared to $848 million in the preceding fiscal period.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "neutral",
+    "sourceCategory": "financial_report",
+    "provenance": "Quarterly Financial Statements",
+    "id": "ds-sentiment_classification-mv30bf2w-p"
+  },
+  {
+    "text": "The board of directors held its regular annual meeting to elect members of the audit and governance committees.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "neutral",
+    "sourceCategory": "regulatory_filing",
+    "provenance": "Proxy Statement Form DEF 14A",
+    "id": "ds-sentiment_classification-mv30bf2w-q"
+  },
+  {
+    "text": "Our headquarters lease agreement was extended for an additional five-year term at prevailing market rates.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "neutral",
+    "sourceCategory": "management_writeup",
+    "provenance": "Corporate Real Estate Lease Note",
+    "id": "ds-sentiment_classification-mv30bf2w-r"
+  },
+  {
+    "text": "Foreign exchange fluctuations had an immaterial impact of less than 0.2% on total reported gross revenues.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "neutral",
+    "sourceCategory": "financial_report",
+    "provenance": "Currency Sensitivity Note",
+    "id": "ds-sentiment_classification-mv30bf2w-s"
+  },
+  {
+    "text": "Standard quarterly maintenance of core database servers was performed on Sunday during scheduled downtime.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "neutral",
+    "sourceCategory": "management_writeup",
+    "provenance": "IT Infrastructure Maintenance Log",
+    "id": "ds-sentiment_classification-mv30bf2w-t"
+  },
+  {
+    "text": "The tax provision was calculated pursuant to statutory rates established under standard domestic internal revenue code.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "neutral",
+    "sourceCategory": "financial_report",
+    "provenance": "Income Tax Note 8",
+    "id": "ds-sentiment_classification-mv30bf2w-u"
+  },
+  {
+    "text": "The transaction was settled in ordinary cash payment channels according to standard 30-day invoice terms.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "neutral",
+    "sourceCategory": "customer_feedback",
+    "provenance": "Accounts Payable Ledger Note",
+    "id": "ds-sentiment_classification-mv30bf2w-v"
+  },
+  {
+    "text": "Shares were traded on the NASDAQ exchange within the historical 52-week trading corridor without unusual volume.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "neutral",
+    "sourceCategory": "news_commentary",
+    "provenance": "Market Trading Summary",
+    "id": "ds-sentiment_classification-mv30bf2w-w"
+  },
+  {
+    "text": "The entity operates in two primary reportable segments: commercial software subscriptions and technical professional services.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "neutral",
+    "sourceCategory": "financial_report",
+    "provenance": "Segment Reporting Note 14",
+    "id": "ds-sentiment_classification-mv30bf2w-x"
+  },
+  {
+    "text": "Top-line revenue grew by 24% to a record high, yet operating profit declined by 18% due to escalating marketing costs.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "mixed",
+    "sourceCategory": "earnings_call",
+    "provenance": "MD&A Earnings Overview",
+    "id": "ds-sentiment_classification-mv30bf2w-y"
+  },
+  {
+    "text": "While North American customer subscriptions surged, European distributor bankruptcies led to significant bad debt allowances.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "mixed",
+    "sourceCategory": "financial_report",
+    "provenance": "Segment Analysis Note",
+    "id": "ds-sentiment_classification-mv30bf2w-z"
+  },
+  {
+    "text": "The new software update introduced powerful analytics features, but persistent login crashes caused customer frustration.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "mixed",
+    "sourceCategory": "customer_feedback",
+    "provenance": "Product Release Review Digest",
+    "id": "ds-sentiment_classification-mv30bf2w-10"
+  },
+  {
+    "text": "Operating cash flow turned positive for the year, although severe working capital inventory build-ups threaten near-term liquidity.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "mixed",
+    "sourceCategory": "financial_report",
+    "provenance": "Cash Flow Statement Review",
+    "id": "ds-sentiment_classification-mv30bf2w-11"
+  },
+  {
+    "text": "Management secured a $50 million strategic equity investment, but current shareholder equity was diluted by 22%.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "mixed",
+    "sourceCategory": "regulatory_filing",
+    "provenance": "Capital Structure Disclosure",
+    "id": "ds-sentiment_classification-mv30bf2w-12"
+  },
+  {
+    "text": "Customer service agents were very polite and courteous, but they could not fix the underlying payment processing error.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "mixed",
+    "sourceCategory": "customer_feedback",
+    "provenance": "Customer Experience Survey Response",
+    "id": "ds-sentiment_classification-mv30bf2w-13"
+  },
+  {
+    "text": "Sales orders increased by 15%, but global shipping backlogs delayed delivery, increasing storage costs and deferring revenue.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "mixed",
+    "sourceCategory": "management_writeup",
+    "provenance": "Supply Chain & Logistics Brief",
+    "id": "ds-sentiment_classification-mv30bf2w-14"
+  },
+  {
+    "text": "The core patent was upheld in district court, but litigation costs depleted current quarterly operating margins.",
+    "task": "sentiment_classification",
+    "sentimentLabel": "mixed",
+    "sourceCategory": "regulatory_filing",
+    "provenance": "Legal Matters Item 103",
+    "id": "ds-sentiment_classification-mv30bf2w-15"
+  }
+]

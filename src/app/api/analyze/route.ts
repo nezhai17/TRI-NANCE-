@@ -4,6 +4,11 @@ import { getCurrentUser } from '@/lib/auth';
 import { analyzeFinancialSentiment } from '@/lib/intelligence/sentiment-engine';
 import { analyzeFinancialRisks } from '@/lib/intelligence/risk-engine';
 import { verifyEvidenceAgainstSource } from '@/lib/intelligence/evidence-verifier';
+import { extractFinancialSignals } from '@/lib/intelligence/numerical-extractor';
+import { detectAnomaliesAndContradictions } from '@/lib/intelligence/anomaly-engine';
+import { analyzeCustomerTextFeedback } from '@/lib/intelligence/customer-text-engine';
+import { extractAndResolveEntities } from '@/lib/intelligence/entity-extractor';
+import { MLInferenceEngine } from '@/lib/ml/model-registry';
 import { createAnalysis, getDocumentById } from '@/lib/store/repository';
 import { RiskFinding } from '@/lib/types';
 
@@ -65,6 +70,39 @@ export async function POST(req: NextRequest) {
     let sentimentResult = undefined;
     if (analysisMode === 'sentiment_only' || analysisMode === 'combined') {
       sentimentResult = analyzeFinancialSentiment(textToAnalyze);
+
+      // Execute live trained ML Model inference if available
+      try {
+        const mlResult = MLInferenceEngine.predict('sentiment_classification', textToAnalyze);
+        if (mlResult) {
+          sentimentResult.mlInference = mlResult;
+        }
+      } catch (err) {
+        console.warn('ML Inference warning:', err);
+      }
+
+      // If source category is customer feedback, run dedicated customer text intelligence engine
+      if (sourceCategory === 'customer_feedback') {
+        const customerFeedback = analyzeCustomerTextFeedback(textToAnalyze);
+        sentimentResult = {
+          ...sentimentResult,
+          customerIntelligence: customerFeedback,
+        };
+      }
+
+      // Map resolved entities to entity sentiment
+      const resolvedEntities = extractAndResolveEntities(textToAnalyze);
+      if (resolvedEntities.length > 0) {
+        sentimentResult.entitySentiments = resolvedEntities.map((ent) => ({
+          entityId: ent.id,
+          entityName: ent.name,
+          entityType: ent.type,
+          sentiment: sentimentResult!.overall,
+          score: sentimentResult!.score,
+          mentionCount: ent.mentionsCount,
+          supportingExcerpts: ent.excerpts,
+        }));
+      }
     }
 
     // 2. Risk Intelligence
@@ -87,11 +125,24 @@ export async function POST(req: NextRequest) {
             paragraph: verification.paragraph ?? f.sourceLocation?.paragraph,
           },
           isApproximateMatch: verification.matchType === 'normalized',
+          reviewStatus: 'open' as const,
+          reviewNotes: [],
         };
       });
     }
 
-    // 4. Persist analysis record
+    // 4. Numerical Financial Signals
+    const numericalSignals = extractFinancialSignals(textToAnalyze);
+
+    // 5. Contradiction & Anomaly Detection
+    const anomalies = detectAnomaliesAndContradictions(
+      textToAnalyze,
+      sentimentResult,
+      validatedFindings,
+      numericalSignals
+    );
+
+    // 6. Persist analysis record
     const record = await createAnalysis({
       userId: user.id,
       documentId: documentId || null,
@@ -105,7 +156,18 @@ export async function POST(req: NextRequest) {
       sentimentResult,
       riskResult,
       findings: validatedFindings,
+      numericalSignals,
+      anomalies,
     });
+
+    const { logAuditEvent } = await import('@/lib/store/repository');
+    await logAuditEvent(
+      user.id,
+      'analysis_completed',
+      'analysis',
+      record.id,
+      { title: record.title, findingsCount: validatedFindings.length, severity: riskResult?.highestSeverity }
+    );
 
     return NextResponse.json(record, { status: 201 });
   } catch (err: unknown) {

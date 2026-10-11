@@ -1,4 +1,11 @@
-import { RiskCategory, RiskFinding, RiskResult, RiskSeverity } from '../types';
+import {
+  RiskCategory,
+  RiskFinding,
+  RiskResult,
+  RiskSeverity,
+  EpistemicCertainty,
+  InvestigationDiligence,
+} from '../types';
 
 interface RiskRule {
   category: RiskCategory;
@@ -11,6 +18,7 @@ interface RiskRule {
   rationaleGenerator: (matchText: string) => string;
   impactGenerator: (matchText: string) => string;
   nextStepsGenerator: () => string[];
+  diligenceGenerator: (matchText: string) => InvestigationDiligence;
 }
 
 export const CATEGORY_LABELS: Record<RiskCategory, string> = {
@@ -33,209 +41,399 @@ const RISK_RULES: RiskRule[] = [
   {
     category: 'liquidity_cash_flow',
     categoryLabel: CATEGORY_LABELS.liquidity_cash_flow,
-    pattern: /\b(?:cash\s+runway\s+(?:under|less\s+than|below)\s+\d+|declining\s+cash\s+reserves|operating\s+cash\s+flow\s+(?:deficit|negative)|cash\s+burn\s+accelerat(?:ed|ing)|insufficient\s+working\s+capital|unable\s+to\s+meet\s+short-term\s+obligations)\b/i,
+    pattern:
+      /\b(?:cash\s+runway\s+(?:under|less\s+than|below)\s+\d+|declining\s+cash\s+reserves|operating\s+cash\s+flow\s+(?:deficit|negative)|cash\s+burn\s+accelerat(?:ed|ing)|insufficient\s+working\s+capital|working\s+capital\s+deficit|current\s+liabilities\s+exceed(?:ed|ing)?\s+current\s+assets|liabilities\s+exceed(?:ed|ing)?\s+assets|unable\s+to\s+meet\s+short-term\s+obligations)\b/i,
     title: 'Acute Cash Burn & Liquidity Strain',
     baseSeverity: 'high',
     classification: 'explicitly_stated',
-    explanationGenerator: (match) => `Discloses immediate liquidity constraints or accelerating cash burn (${match}) that threaten operating solvency.`,
-    rationaleGenerator: () => `Materiality is severe because near-term obligations cannot be sustained without external capital injection or emergency credit facilities.`,
-    impactGenerator: () => `Potential inability to meet vendor obligations or debt service covenants within the next 3 to 6 months.`,
+    explanationGenerator: (match) =>
+      `Discloses immediate liquidity constraints or accelerating cash burn (${match}) that threaten operating solvency.`,
+    rationaleGenerator: () =>
+      `Materiality is severe because near-term obligations cannot be sustained without external capital injection or emergency credit facilities.`,
+    impactGenerator: () =>
+      `Potential inability to meet vendor obligations or debt service covenants within the next 3 to 6 months.`,
     nextStepsGenerator: () => [
       'Conduct 13-week rolling cash flow forecast.',
       'Audit working capital requirements and defer discretionary capital expenditures.',
-      'Engage secondary lending syndicates for emergency revolving credit extension.'
+      'Engage secondary lending syndicates for emergency revolving credit extension.',
     ],
+    diligenceGenerator: (match) => ({
+      questionsForManagement: [
+        'What is the unencumbered cash runway under a zero-growth scenario without new credit draws?',
+        'What proportion of cash reserves is held in restricted escrow or foreign subsidiaries with repatriation costs?',
+      ],
+      recordsToCrossExamine: [
+        'Note on Cash, Cash Equivalents & Restricted Escrows in the Consolidated Balance Sheets.',
+        'Statement of Cash Flows: Net Cash Provided by Operating Activities and Working Capital variances.',
+      ],
+      identifiedInformationGap: `Disclosure notes cash strain (${match}) but omits monthly burn rate numbers and undrawn committed credit line availability.`,
+    }),
   },
   // 2. Debt & Leverage
   {
     category: 'debt_leverage',
     categoryLabel: CATEGORY_LABELS.debt_leverage,
-    pattern: /\b(?:covenant\s+breach|breached\s+(?:debt|loan)\s+covenants?|debt\s+to\s+equity\s+(?:exceeding|ratio\s+above)|heavily\s+leveraged|refinancing\s+risk|upcoming\s+debt\s+maturity|credit\s+rating\s+downgrade)\b/i,
+    pattern:
+      /\b(?:covenant\s+breach|breached\s+(?:debt|loan)\s+covenants?|debt\s+to\s+equity\s+(?:exceeding|ratio\s+above)|heavily\s+leveraged|refinancing\s+risk|upcoming\s+debt\s+maturity|credit\s+rating\s+downgrade)\b/i,
     title: 'Elevated Leverage & Debt Covenant Exposure',
     baseSeverity: 'critical',
     classification: 'explicitly_stated',
-    explanationGenerator: (match) => `Highlights critical leverage vulnerability or impending debt covenant non-compliance (${match}).`,
-    rationaleGenerator: () => `Covenant default triggers cross-acceleration across existing senior facilities, creating systemic refinancing risk.`,
-    impactGenerator: () => `Creditors may demand immediate principal prepayment or penal interest rate escalations.`,
+    explanationGenerator: (match) =>
+      `Highlights critical leverage vulnerability or impending debt covenant non-compliance (${match}).`,
+    rationaleGenerator: () =>
+      `Covenant default triggers cross-acceleration across existing senior facilities, creating systemic refinancing risk.`,
+    impactGenerator: () =>
+      `Creditors may demand immediate principal prepayment or penal interest rate escalations.`,
     nextStepsGenerator: () => [
       'Review credit agreement cure periods and request formal lender waivers.',
       'Assess debt restructuring alternatives and maturity ladder extensions.',
-      'Model debt service coverage ratio (DSCR) under stressed EBITDA scenarios.'
+      'Model debt service coverage ratio (DSCR) under stressed EBITDA scenarios.',
     ],
+    diligenceGenerator: (match) => ({
+      questionsForManagement: [
+        'Have senior lenders formally delivered a reservation of rights letter or granted a temporary standstill waiver?',
+        'What is the default interest margin and fee penalty triggered by this covenant non-compliance?',
+      ],
+      recordsToCrossExamine: [
+        'Note on Long-Term Debt, Revolving Credit Facilities, and Financial Covenant compliance.',
+        'Credit Agreement Exhibit 10.1: Section 7 (Financial Covenants) and Section 8 (Events of Default).',
+      ],
+      identifiedInformationGap: `Disclosure confirms covenant strain (${match}) but does not state the standstill expiry date or lender waiver conditions.`,
+    }),
   },
   // 3. Revenue & Earnings Pressure
   {
     category: 'revenue_earnings_pressure',
     categoryLabel: CATEGORY_LABELS.revenue_earnings_pressure,
-    pattern: /\b(?:revenue\s+(?:decline|contracted|fell\s+by|plunged)|declining\s+earnings|missed\s+(?:revenue|earnings)\s+guidance|top-line\s+contraction|slowdown\s+in\s+customer\s+demand|slumping\s+sales)\b/i,
+    pattern:
+      /\b(?:revenue\s+(?:decline|contracted|fell\s+by|plunged)|declining\s+earnings|missed\s+(?:revenue|earnings)\s+guidance|top-line\s+contraction|slowdown\s+in\s+customer\s+demand|slumping\s+sales)\b/i,
     title: 'Top-Line Contraction & Earnings Vulnerability',
     baseSeverity: 'medium',
     classification: 'explicitly_stated',
-    explanationGenerator: (match) => `Identifies negative growth trajectory or downward earnings revision (${match}).`,
-    rationaleGenerator: () => `Sustained revenue contraction depresses operating leverage and compromises enterprise valuation.`,
-    impactGenerator: () => `Compressed operating margins and negative analyst re-rating.`,
+    explanationGenerator: (match) =>
+      `Identifies negative growth trajectory or downward earnings revision (${match}).`,
+    rationaleGenerator: () =>
+      `Sustained revenue contraction depresses operating leverage and compromises enterprise valuation.`,
+    impactGenerator: () =>
+      `Compressed operating margins and negative analyst re-rating.`,
     nextStepsGenerator: () => [
       'Segment churn and cohort retention by product line.',
       'Re-examine pricing elasticity and promotional discounts.',
-      'Review sales pipeline conversion rates and pipeline velocity.'
+      'Review sales pipeline conversion rates and pipeline velocity.',
     ],
+    diligenceGenerator: (match) => ({
+      questionsForManagement: [
+        'How much of the revenue contraction is volume-driven versus price-discounting driven?',
+        'What is the contracted annual recurring revenue (ARR) renewal rate for the next two quarters?',
+      ],
+      recordsToCrossExamine: [
+        'Segment Reporting Note: Revenue breakdown by geographic market and product line.',
+        'MD&A (Management Discussion and Analysis): Backlog and Order Intake disclosure tables.',
+      ],
+      identifiedInformationGap: `Contraction noted (${match}) without separating cyclical macro effects from permanent market share concessions.`,
+    }),
   },
   // 4. Expense Growth & Margin Deterioration
   {
     category: 'expense_margin_deterioration',
     categoryLabel: CATEGORY_LABELS.expense_margin_deterioration,
-    pattern: /\b(?:margin\s+compression|gross\s+margin\s+(?:eroded|dropped|contracted)|operating\s+expenses\s+outpac(?:ed|ing)|cost\s+inflation|spiraling\s+costs|sg&a\s+increased\s+substantially)\b/i,
+    pattern:
+      /\b(?:margin\s+compression|gross\s+margin\s+(?:eroded|dropped|contracted)|operating\s+expenses\s+outpac(?:ed|ing)|cost\s+inflation|spiraling\s+costs|sg&a\s+increased\s+substantially)\b/i,
     title: 'Operating Margin Compression & Cost Inflation',
     baseSeverity: 'medium',
     classification: 'explicitly_stated',
-    explanationGenerator: (match) => `Notes deterioration of gross or operating margins caused by runaway expenditures or input cost inflation (${match}).`,
-    rationaleGenerator: () => `Operating cost escalation outstrips top-line realization, eroding bottom-line profitability.`,
-    impactGenerator: () => `Shrinking free cash flow conversion and diminished reinvestment capacity.`,
+    explanationGenerator: (match) =>
+      `Notes deterioration of gross or operating margins caused by runaway expenditures or input cost inflation (${match}).`,
+    rationaleGenerator: () =>
+      `Operating cost escalation outstrips top-line realization, eroding bottom-line profitability.`,
+    impactGenerator: () =>
+      `Shrinking free cash flow conversion and diminished reinvestment capacity.`,
     nextStepsGenerator: () => [
       'Perform line-item OPEX variance audit across business units.',
       'Renegotiate vendor contracts and introduce procurement threshold freezes.',
-      'Automate high-cost manual processing workflows.'
+      'Automate high-cost manual processing workflows.',
     ],
+    diligenceGenerator: (match) => ({
+      questionsForManagement: [
+        'What portion of the margin compression is transitory input inflation versus structural overhead expansion?',
+        'What productivity or headcount adjustments are scheduled to restore operating leverage?',
+      ],
+      recordsToCrossExamine: [
+        'Consolidated Statements of Operations: Cost of Goods Sold and SG&A ratio trends.',
+        'Note on Restructuring Charges and Employee Benefit Costs.',
+      ],
+      identifiedInformationGap: `Margin drop cited (${match}) without disclosing unit economics or pass-through pricing clauses.`,
+    }),
   },
   // 5. Customer Churn & Confidence
   {
     category: 'customer_churn_confidence',
     categoryLabel: CATEGORY_LABELS.customer_churn_confidence,
-    pattern: /\b(?:customer\s+churn\s+(?:spiked|accelerated|increased)|loss\s+of\s+key\s+clients?|client\s+defections?|declining\s+nps|customer\s+retention\s+(?:fell|dropped)|contract\s+non-renewal)\b/i,
+    pattern:
+      /\b(?:customer\s+churn\s+(?:spiked|accelerated|increased)|loss\s+of\s+key\s+clients?|client\s+defections?|declining\s+nps|customer\s+retention\s+(?:fell|dropped)|contract\s+non-renewal)\b/i,
     title: 'Customer Churn & Enterprise Client Attrition',
     baseSeverity: 'high',
     classification: 'explicitly_stated',
-    explanationGenerator: (match) => `Reveals escalating customer defections or non-renewal of significant enterprise accounts (${match}).`,
-    rationaleGenerator: () => `Elevated churn erodes recurring revenue baseline and increases customer acquisition cost (CAC) payback periods.`,
-    impactGenerator: () => `Persistent multi-quarter revenue drag and market share concession to competitors.`,
+    explanationGenerator: (match) =>
+      `Reveals escalating customer defections or non-renewal of significant enterprise accounts (${match}).`,
+    rationaleGenerator: () =>
+      `Elevated churn erodes recurring revenue baseline and increases customer acquisition cost (CAC) payback periods.`,
+    impactGenerator: () =>
+      `Persistent multi-quarter revenue drag and market share concession to competitors.`,
     nextStepsGenerator: () => [
       'Execute customer health score audits for top 20% revenue-generating accounts.',
       'Investigate primary cancellation reasons via executive outreach.',
-      'Implement proactive SLA monitoring and customer success intervention programs.'
+      'Implement proactive SLA monitoring and customer success intervention programs.',
     ],
+    diligenceGenerator: () => ({
+      questionsForManagement: [
+        'What is the net revenue retention (NRR) rate among enterprise accounts with >$100k ARR?',
+        'Were client cancellations concentrated around specific product defects or competitive pricing pressure?',
+      ],
+      recordsToCrossExamine: [
+        'Customer Concentration Disclosures in Risk Factors and Annual Report Notes.',
+        'Sales and Marketing expense trend vs. new customer additions (CAC trend analysis).',
+      ],
+      identifiedInformationGap:
+        'Client defections disclosed without quantifying dollar retention rates or top-client concentration percentages.',
+    }),
   },
   // 6. Late Payments & Collections
   {
     category: 'late_payments_collections',
     categoryLabel: CATEGORY_LABELS.late_payments_collections,
-    pattern: /\b(?:overdue\s+receivables|delayed\s+collections|dso\s+(?:increased|lengthened)|days\s+sales\s+outstanding\s+rose|uncollectible\s+accounts|provision\s+for\s+bad\s+debts?|client\s+payment\s+delays)\b/i,
+    pattern:
+      /\b(?:overdue\s+receivables|delayed\s+collections|dso\s+(?:increased|lengthened)|days\s+sales\s+outstanding\s+rose|uncollectible\s+accounts|provision\s+for\s+bad\s+debts?|client\s+payment\s+delays)\b/i,
     title: 'DSO Extension & Counterparty Collection Delays',
     baseSeverity: 'medium',
     classification: 'explicitly_stated',
-    explanationGenerator: (match) => `Reports growing days sales outstanding (DSO) or surge in overdue customer receivables (${match}).`,
-    rationaleGenerator: () => `Aging accounts receivable tie up operating cash in working capital and elevate default loss exposure.`,
-    impactGenerator: () => `Cash drag and mandatory provision write-downs against aged ledger balances.`,
+    explanationGenerator: (match) =>
+      `Reports growing days sales outstanding (DSO) or surge in overdue customer receivables (${match}).`,
+    rationaleGenerator: () =>
+      `Aging accounts receivable tie up operating cash in working capital and elevate default loss exposure.`,
+    impactGenerator: () =>
+      `Cash drag and mandatory provision write-downs against aged ledger balances.`,
     nextStepsGenerator: () => [
       'Enforce stricter credit evaluation limits on delayed accounts.',
       'Introduce early payment discounting (e.g. 2/10 net 30).',
-      'Escalate past-due accounts over 60 days to dedicated collection protocol.'
+      'Escalate past-due accounts over 60 days to dedicated collection protocol.',
     ],
+    diligenceGenerator: () => ({
+      questionsForManagement: [
+        'What percentage of accounts receivable is overdue past 90 days, and what are the specific credit ratings of delinquent clients?',
+        'Has the company relaxed payment terms to inflate headline volume figures?',
+      ],
+      recordsToCrossExamine: [
+        'Note on Accounts Receivable and Allowance for Credit Losses (Aging Schedule).',
+        'Working Capital changes in Statement of Cash Flows.',
+      ],
+      identifiedInformationGap:
+        'DSO elongation disclosed without providing the aged receivables table or bad debt allowance coverage ratio.',
+    }),
   },
   // 7. Operational Disruption
   {
     category: 'operational_disruption',
     categoryLabel: CATEGORY_LABELS.operational_disruption,
-    pattern: /\b(?:service\s+outage|production\s+halt|operational\s+(?:bottleneck|downtime|breakdown)|unplanned\s+shutdown|facility\s+interruption|system\s+failure)\b/i,
+    pattern:
+      /\b(?:service\s+outage|production\s+halt|operational\s+(?:bottleneck|downtime|breakdown)|unplanned\s+shutdown|facility\s+interruption|system\s+failure)\b/i,
     title: 'Core Operational Downtime & Service Interruption',
     baseSeverity: 'high',
     classification: 'explicitly_stated',
-    explanationGenerator: (match) => `Documents structural operational bottlenecks or unplanned downtime (${match}) impacting delivery.`,
-    rationaleGenerator: () => `Core facility or infrastructure downtime immediately jeopardizes customer SLAs and contractual warranties.`,
-    impactGenerator: () => `Direct contractual liquidated damages and loss of client trust.`,
+    explanationGenerator: (match) =>
+      `Documents structural operational bottlenecks or unplanned downtime (${match}) impacting delivery.`,
+    rationaleGenerator: () =>
+      `Core facility or infrastructure downtime immediately jeopardizes customer SLAs and contractual warranties.`,
+    impactGenerator: () =>
+      `Direct contractual liquidated damages and loss of client trust.`,
     nextStepsGenerator: () => [
       'Initiate root-cause engineering review and disaster failover testing.',
       'Establish secondary redundant cloud and operational nodes.',
-      'Verify business interruption insurance policy limits.'
+      'Verify business interruption insurance policy limits.',
     ],
+    diligenceGenerator: () => ({
+      questionsForManagement: [
+        'What was the total cumulative downtime in production/service hours, and what SLA penalty liabilities were accrued?',
+        'What capital expenditure is required to establish dual-redundancy for the affected infrastructure?',
+      ],
+      recordsToCrossExamine: [
+        'Accrued Liabilities note for pending SLA service credits or liquidated damages.',
+        'Capital Commitments note in annual filings.',
+      ],
+      identifiedInformationGap:
+        'Outage reported without disclosing SLA credit liabilities or mean time to recovery (MTTR).',
+    }),
   },
   // 8. Supply Chain Dependency
   {
     category: 'supply_chain_dependency',
     categoryLabel: CATEGORY_LABELS.supply_chain_dependency,
-    pattern: /\b(?:sole-source\s+supplier|single\s+vendor\s+dependency|supply\s+chain\s+(?:bottleneck|chokepoint|disruption)|material\s+shortages?|component\s+delay|supplier\s+insolvency)\b/i,
+    pattern:
+      /\b(?:sole-source\s+supplier|single\s+vendor\s+dependency|supply\s+chain\s+(?:bottleneck|bottlenecks|chokepoint|chokepoints|disruption|disruptions)|material\s+shortages?|component\s+delay|supplier\s+insolvency)\b/i,
     title: 'Concentrated Vendor Dependency & Supply Chokepoints',
     baseSeverity: 'high',
     classification: 'inferred',
-    explanationGenerator: (match) => `Uncovers vulnerability to single-source suppliers or critical material procurement chokepoints (${match}).`,
-    rationaleGenerator: () => `A single-point supplier breakdown halts manufacturing or service fulfillment without immediate alternative sourcing.`,
-    impactGenerator: () => `Severe lead time elongation, unfulfilled purchase orders, and inventory stock-outs.`,
+    explanationGenerator: (match) =>
+      `Uncovers vulnerability to single-source suppliers or critical material procurement chokepoints (${match}).`,
+    rationaleGenerator: () =>
+      `A single-point supplier breakdown halts manufacturing or service fulfillment without immediate alternative sourcing.`,
+    impactGenerator: () =>
+      `Severe lead time elongation, unfulfilled purchase orders, and inventory stock-outs.`,
     nextStepsGenerator: () => [
       'Qualify dual-sourcing secondary suppliers across tier-1 materials.',
       'Maintain strategic safety stock buffers for critical components.',
-      'Audit financial health and solvency ratings of primary suppliers.'
+      'Audit financial health and solvency ratings of primary suppliers.',
     ],
+    diligenceGenerator: () => ({
+      questionsForManagement: [
+        'What is the estimated onboarding lead time to qualify and certify a secondary supplier for the critical component?',
+        'Does the company hold minimum inventory buffer stock to sustain production for 90 days?',
+      ],
+      recordsToCrossExamine: [
+        'Inventory Note: Raw Materials vs. Finished Goods breakdown and inventory write-down reserves.',
+        'Purchase Commitments and Long-Term Sourcing Agreements Note.',
+      ],
+      identifiedInformationGap:
+        'Vendor bottleneck disclosed without stating safety stock runway or dual-qualification timelines.',
+    }),
   },
   // 9. Regulatory & Compliance
   {
     category: 'regulatory_compliance',
     categoryLabel: CATEGORY_LABELS.regulatory_compliance,
-    pattern: /\b(?:regulatory\s+(?:investigation|sanction|inquiry)|sec\s+(?:probe|investigation)|doj\s+subpoena|fined\s+by\s+regulators|non-compliance\s+with\s+(?:gdpr|sox|sec|finra)|license\s+revocation|compliance\s+violation)\b/i,
+    pattern:
+      /\b(?:regulatory\s+(?:investigation|sanction|inquiry)|sec\s+(?:probe|investigation)|doj\s+subpoena|fined\s+by\s+regulators|non-compliance\s+with\s+(?:gdpr|sox|sec|finra)|license\s+revocation|compliance\s+violation)\b/i,
     title: 'Regulatory Enforcement & Compliance Inquiries',
     baseSeverity: 'critical',
     classification: 'explicitly_stated',
-    explanationGenerator: (match) => `Discloses formal regulatory inquiries, enforcement actions, or statutory non-compliance (${match}).`,
-    rationaleGenerator: () => `Regulatory sanctions carry substantial financial penalties, legal expenses, and potential operational restrictions.`,
-    impactGenerator: () => `Substantial penalty assessments, operating license suspension, and mandatory structural remediation.`,
+    explanationGenerator: (match) =>
+      `Discloses formal regulatory inquiries, enforcement actions, or statutory non-compliance (${match}).`,
+    rationaleGenerator: () =>
+      `Regulatory sanctions carry substantial financial penalties, legal expenses, and potential operational restrictions.`,
+    impactGenerator: () =>
+      `Substantial penalty assessments, operating license suspension, and mandatory structural remediation.`,
     nextStepsGenerator: () => [
       'Retain specialized regulatory counsel to oversee agency engagement.',
       'Perform thorough internal compliance audit and preserve audit trails.',
-      'Prepare disclosure strategy for stakeholder and shareholder communication.'
+      'Prepare disclosure strategy for stakeholder and shareholder communication.',
     ],
+    diligenceGenerator: (match) => ({
+      questionsForManagement: [
+        'Has the investigating agency issued a formal Wells Notice, civil investigative demand (CID), or subpoena?',
+        'What specific legal reserve or litigation accrual has been established under ASC 450?',
+      ],
+      recordsToCrossExamine: [
+        'Note on Commitments and Contingencies (Litigation and Regulatory Matters).',
+        'Legal defense expense trends in SG&A line items.',
+      ],
+      identifiedInformationGap: `Regulatory inquiry acknowledged (${match}) without disclosing whether counsel considers an adverse financial judgment probable or estimable.`,
+    }),
   },
   // 10. Fraud & Inconsistencies
   {
     category: 'fraud_inconsistencies',
     categoryLabel: CATEGORY_LABELS.fraud_inconsistencies,
-    pattern: /\b(?:accounting\s+irregularit(?:y|ies)|unsupported\s+transactions|whistleblower\s+allegation|discrepanc(?:y|ies)\s+in\s+financials|restatement\s+of\s+earnings|audit\s+qualification|material\s+weakness\s+in\s+internal\s+controls)\b/i,
+    pattern:
+      /\b(?:accounting\s+irregularit(?:y|ies)|unsupported\s+transactions|whistleblower\s+allegation|discrepanc(?:y|ies)\s+in\s+financials|restatement\s+of\s+earnings|audit\s+qualification|material\s+weakness\s+in\s+internal\s+controls)\b/i,
     title: 'Internal Control Material Weakness & Financial Inconsistency',
     baseSeverity: 'critical',
     classification: 'requiring_verification',
-    explanationGenerator: (match) => `Flags accounting inconsistencies, internal control deficiencies, or restatements (${match}).`,
-    rationaleGenerator: () => `Internal control failures create significant uncertainty around financial statement accuracy and management representations.`,
-    impactGenerator: () => `Loss of capital market confidence, credit rating downgrades, and potential forensic investigations.`,
+    explanationGenerator: (match) =>
+      `Flags accounting inconsistencies, internal control deficiencies, or restatements (${match}).`,
+    rationaleGenerator: () =>
+      `Internal control failures create significant uncertainty around financial statement accuracy and management representations.`,
+    impactGenerator: () =>
+      `Loss of capital market confidence, credit rating downgrades, and potential forensic investigations.`,
     nextStepsGenerator: () => [
       'Form independent audit committee investigation team.',
       'Commission external forensic accounting review.',
-      'Remediate internal control gaps under COSO framework standards.'
+      'Remediate internal control gaps under COSO framework standards.',
     ],
+    diligenceGenerator: () => ({
+      questionsForManagement: [
+        'What specific financial accounts or transaction types were affected by the internal control deficiency?',
+        'Has the external auditor concluded that management can rely on automated financial systems for upcoming quarterly reporting?',
+      ],
+      recordsToCrossExamine: [
+        'Item 9A: Controls and Procedures (Management Report on Internal Control over Financial Reporting).',
+        'Independent Auditor Report on Internal Controls (PCAOB Attestation).',
+      ],
+      identifiedInformationGap:
+        'Control deficiency identified without itemizing remediated controls or affected financial statement line items.',
+    }),
   },
   // 11. Reputational Risk
   {
     category: 'reputational_risk',
     categoryLabel: CATEGORY_LABELS.reputational_risk,
-    pattern: /\b(?:public\s+backlash|negative\s+media\s+coverage|boycott|brand\s+damage|executive\s+misconduct|scandal|public\s+relations\s+crisis)\b/i,
+    pattern:
+      /\b(?:public\s+backlash|negative\s+media\s+coverage|boycott|brand\s+damage|executive\s+misconduct|scandal|public\s+relations\s+crisis)\b/i,
     title: 'Reputational Brand Damage & Stakeholder Scrutiny',
     baseSeverity: 'medium',
     classification: 'inferred',
-    explanationGenerator: (match) => `Cites widespread negative public exposure or corporate governance controversies (${match}).`,
-    rationaleGenerator: () => `Damaged brand reputation impairs consumer trust, employee retention, and enterprise sales conversions.`,
-    impactGenerator: () => `Depressed conversion rates, commercial partner hesitance, and higher cost of customer acquisition.`,
+    explanationGenerator: (match) =>
+      `Cites widespread negative public exposure or corporate governance controversies (${match}).`,
+    rationaleGenerator: () =>
+      `Damaged brand reputation impairs consumer trust, employee retention, and enterprise sales conversions.`,
+    impactGenerator: () =>
+      `Depressed conversion rates, commercial partner hesitance, and higher cost of customer acquisition.`,
     nextStepsGenerator: () => [
       'Deploy rapid crisis communications and transparent stakeholder briefing.',
       'Conduct stakeholder sentiment tracking across key client accounts.',
-      'Address core cultural or governance root causes transparently.'
+      'Address core cultural or governance root causes transparently.',
     ],
+    diligenceGenerator: () => ({
+      questionsForManagement: [
+        'Has brand fallout impacted customer renewal conversations or caused commercial partner disassociations?',
+        'What governance oversight controls were introduced to prevent recurring controversy?',
+      ],
+      recordsToCrossExamine: [
+        'Corporate Governance disclosures and Board Committee charters.',
+        'Customer satisfaction and account retention reports.',
+      ],
+      identifiedInformationGap:
+        'Reputational challenge mentioned without documenting quantifiable churn or financial impact on sales pipeline.',
+    }),
   },
   // 12. Business Continuity & Going Concern
   {
     category: 'business_continuity',
     categoryLabel: CATEGORY_LABELS.business_continuity,
-    pattern: /\b(?:substantial\s+doubt\s+about\s+(?:the\s+)?(?:company(?:'s)?)?\s*ability\s+to\s+continue\s+as\s+a\s+going\s+concern|going\s+concern\s+(?:warning|doubt|uncertainty|opinion)|going\s+concern|insolvency\s+proceedings|winding\s+up|threat\s+to\s+business\s+viability|cease\s+operations)\b/i,
+    pattern:
+      /\b(?:substantial\s+doubt\s+about\s+(?:the\s+)?(?:company(?:'s)?)?\s*ability\s+to\s+continue\s+as\s+a\s+going\s+concern|going\s+concern\s+(?:warning|doubt|uncertainty|opinion)|going\s+concern|insolvency\s+proceedings|winding\s+up|threat\s+to\s+business\s+viability|cease\s+operations)\b/i,
     title: 'Going Concern Warning & Solvency Threat',
     baseSeverity: 'critical',
     classification: 'explicitly_stated',
-    explanationGenerator: (match) => `Contains explicit auditor or management disclosures questioning going-concern viability (${match}).`,
-    rationaleGenerator: () => `Represents the most acute stage of enterprise risk, indicating imminent operational collapse without radical capital intervention.`,
-    impactGenerator: () => `Immediate covenant liquidation, equity wipeout risk, and supplier credit withdrawal.`,
+    explanationGenerator: (match) =>
+      `Contains explicit auditor or management disclosures questioning going-concern viability (${match}).`,
+    rationaleGenerator: () =>
+      `Represents the most acute stage of enterprise risk, indicating imminent operational collapse without radical capital intervention.`,
+    impactGenerator: () =>
+      `Immediate covenant liquidation, equity wipeout risk, and supplier credit withdrawal.`,
     nextStepsGenerator: () => [
       'Engage specialized turnaround advisors and insolvency counsel.',
       'Formulate contingency liquidation or chapter reorganization plans.',
-      'Explore urgent distressed M&A or debt-for-equity recapitalization options.'
+      'Explore urgent distressed M&A or debt-for-equity recapitalization options.',
     ],
+    diligenceGenerator: () => ({
+      questionsForManagement: [
+        'What specific management plans have been reviewed by the external auditor to alleviate substantial doubt?',
+        'What are the minimum capital bridge milestones required within the next 90 days to avert insolvency filing?',
+      ],
+      recordsToCrossExamine: [
+        'Note 1: Basis of Presentation and Going Concern Disclosures (ASC 205-40).',
+        'Independent Auditor Report Explanatory Paragraph.',
+      ],
+      identifiedInformationGap:
+        'Going-concern warning noted without providing detailed liquidation analysis or committed emergency financing term sheets.',
+    }),
   },
 ];
 
-export function analyzeFinancialRisks(text: string): { findings: RiskFinding[]; summary: RiskResult } {
+export function analyzeFinancialRisks(text: string): {
+  findings: RiskFinding[];
+  summary: RiskResult;
+} {
   if (!text || text.trim().length === 0) {
     return {
       findings: [],
@@ -250,8 +448,14 @@ export function analyzeFinancialRisks(text: string): { findings: RiskFinding[]; 
     };
   }
 
-  const sentenceRegex = /[^.!?\n]+[.!?\n]+/g;
-  const rawSentences = text.match(sentenceRegex) || [text];
+  // Robust sentence segmentation that avoids splitting on decimal points
+  const rawSentences = text
+    .split(/\n+/)
+    .flatMap((line) => line.split(/(?<=[.!?])\s+(?=[A-Z0-9"']|$)/))
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
+
+  const sentences = rawSentences.length > 0 ? rawSentences : [text.trim()];
 
   const findings: RiskFinding[] = [];
   const categoryCounts: Partial<Record<RiskCategory, number>> = {};
@@ -264,7 +468,7 @@ export function analyzeFinancialRisks(text: string): { findings: RiskFinding[]; 
 
   let offsetTracker = 0;
 
-  rawSentences.forEach((sentence, sIdx) => {
+  sentences.forEach((sentence, sIdx) => {
     const cleanSentence = sentence.trim();
     if (cleanSentence.length < 10) return;
 
@@ -276,17 +480,52 @@ export function analyzeFinancialRisks(text: string): { findings: RiskFinding[]; 
       if (match) {
         // Matched a real pattern in source text!
         const matchedTerm = match[0];
-        const excerpt = cleanSentence.length > 250 ? cleanSentence.substring(0, 247) + '...' : cleanSentence;
+        const excerpt =
+          cleanSentence.length > 250 ? cleanSentence.substring(0, 247) + '...' : cleanSentence;
 
         // Contextual severity calibration: check if mitigated in sentence
         let severity = rule.baseSeverity;
-        const isMitigated = /\b(managed|hedged|contained|mitigated|offset|temporary|resolved|waiver\s+granted)\b/i.test(cleanSentence);
+        const isMitigated =
+          /\b(managed|hedged|contained|mitigated|offset|temporary|resolved|waiver\s+granted)\b/i.test(
+            cleanSentence
+          );
         if (isMitigated && severity === 'critical') severity = 'high';
         else if (isMitigated && severity === 'high') severity = 'medium';
 
         // Check if multiple matching flags exist in same sentence to escalate
-        const isCompounded = /\b(furthermore|substantially|drastic|unprecedented|immediate|severe)\b/i.test(cleanSentence);
+        const isCompounded =
+          /\b(furthermore|substantially|drastic|unprecedented|immediate|severe)\b/i.test(
+            cleanSentence
+          );
         if (isCompounded && severity === 'medium') severity = 'high';
+
+        // Epistemic certainty modeling:
+        // Distinguish documented historical facts vs. forward-looking hedged warnings
+        const isHedgedWarning =
+          /\b(may|might|could|potential|potentially|anticipated|projected|at\s+risk\s+of|subject\s+to|uncertain)\b/i.test(
+            cleanSentence
+          );
+        const isDirectFact =
+          /\b(breached|recorded|incurred|received|subpoena|fell|plunged|defaulted|warning\s+issued|\$\d+)\b/i.test(
+            cleanSentence
+          );
+
+        let epistemicCertainty: EpistemicCertainty = 'documented_fact';
+        let uncertaintyRationale = '';
+
+        if (isHedgedWarning && !isDirectFact) {
+          epistemicCertainty = 'hedged_projection';
+          uncertaintyRationale =
+            'Hedged Risk Warning: Grounded in forward-looking commentary conditioned on future events. Numerical exposure and timing remain unconfirmed in current text.';
+        } else if (isHedgedWarning && isDirectFact) {
+          epistemicCertainty = 'ambiguous_disclosure';
+          uncertaintyRationale =
+            'Conditional Discrepancy: Disclosure references historical strain alongside forward qualifiers. Corroboration against footnotes required.';
+        } else {
+          epistemicCertainty = 'documented_fact';
+          uncertaintyRationale =
+            'Documented Historical Fact: Direct disclosure of an active or concluded financial condition with high textual certainty.';
+        }
 
         const findingId = `risk-${rule.category}-${sIdx}-${findings.length + 1}`;
 
@@ -305,10 +544,18 @@ export function analyzeFinancialRisks(text: string): { findings: RiskFinding[]; 
           explanation: rule.explanationGenerator(matchedTerm),
           severity,
           severityRationale: rule.rationaleGenerator(matchedTerm),
-          confidence: rule.classification === 'explicitly_stated' ? 0.94 : 0.82,
+          confidence:
+            epistemicCertainty === 'documented_fact'
+              ? 0.95
+              : epistemicCertainty === 'hedged_projection'
+              ? 0.78
+              : 0.68,
           potentialImpact: rule.impactGenerator(matchedTerm),
           suggestedNextSteps: rule.nextStepsGenerator(),
           classification: rule.classification,
+          epistemicCertainty,
+          uncertaintyRationale,
+          investigationDiligence: rule.diligenceGenerator(matchedTerm),
         });
 
         severityDistribution[severity]++;
@@ -318,7 +565,6 @@ export function analyzeFinancialRisks(text: string): { findings: RiskFinding[]; 
   });
 
   // Calculate composite risk score (0-100)
-  // critical = 30 pts each, high = 18 pts each, medium = 8 pts each, low = 3 pts each (capped at 100)
   const weightedRisk =
     severityDistribution.critical * 30 +
     severityDistribution.high * 18 +
@@ -335,9 +581,9 @@ export function analyzeFinancialRisks(text: string): { findings: RiskFinding[]; 
 
   let summaryText = '';
   if (highestSeverity === 'critical') {
-    summaryText = `CRITICAL RISK PROFILE DETECTED: Platform uncovered ${findings.length} risk finding(s), with severe vulnerability in ${findings.filter(f => f.severity === 'critical').map(f => f.categoryLabel).slice(0, 2).join(' and ')}. Immediate management intervention required.`;
+    summaryText = `CRITICAL RISK PROFILE DETECTED: Platform uncovered ${findings.length} risk finding(s), with severe vulnerability in ${findings.filter((f) => f.severity === 'critical').map((f) => f.categoryLabel).slice(0, 2).join(' and ')}. Immediate management intervention required.`;
   } else if (highestSeverity === 'high') {
-    summaryText = `ELEVATED RISK LEVEL: Identified ${findings.length} operational or financial risk pattern(s). Notable concentrations in ${findings.map(f => f.categoryLabel).slice(0, 2).join(', ')}. Liquidity and contractual terms warrant close surveillance.`;
+    summaryText = `ELEVATED RISK LEVEL: Identified ${findings.length} operational or financial risk pattern(s). Notable concentrations in ${findings.map((f) => f.categoryLabel).slice(0, 2).join(', ')}. Liquidity and contractual terms warrant close surveillance.`;
   } else if (highestSeverity === 'medium') {
     summaryText = `MODERATE VULNERABILITY: ${findings.length} moderate risk signal(s) noted. Routine commercial or cyclical headwinds observed without immediate threat to financial solvency.`;
   } else if (findings.length > 0) {

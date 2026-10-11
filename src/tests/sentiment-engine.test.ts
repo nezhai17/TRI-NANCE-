@@ -44,4 +44,14 @@ describe('Financial Sentiment Intelligence Engine', () => {
     expect(result.score).toBe(0);
     expect(result.positiveSignals).toEqual([]);
   });
+
+  it('measures uncertainty index and flags hedged statements with information gaps', () => {
+    const text = 'Management anticipates possible revenue growth next year, but results may fluctuate depending on uncertain supply chain factors. We believe potential recovery is possible.';
+    const result = analyzeFinancialSentiment(text);
+
+    expect(result.uncertaintyScore).toBeGreaterThan(0);
+    expect(result.hedgedSignals?.length).toBeGreaterThan(0);
+    expect(result.hedgedSignals?.[0].epistemicCertainty).toBe('hedged_projection');
+    expect(result.informationGaps?.length).toBeGreaterThan(0);
+  });
 });

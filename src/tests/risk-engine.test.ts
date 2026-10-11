@@ -54,4 +54,17 @@ describe('Financial Risk Intelligence Engine', () => {
     expect(summary.highestSeverity).toBe('low');
     expect(summary.overallRiskScore).toBe(0);
   });
+
+  it('generates targeted management inquiries, footnote cross-references, and epistemic certainty tags', () => {
+    const text = 'The company experienced a severe covenant breach on its revolving credit facility and cash runway fell below 3 months.';
+    const { findings } = analyzeFinancialRisks(text);
+
+    const covFinding = findings.find((f) => f.category === 'debt_leverage');
+    expect(covFinding).toBeDefined();
+    expect(covFinding?.epistemicCertainty).toBe('documented_fact');
+    expect(covFinding?.investigationDiligence).toBeDefined();
+    expect(covFinding?.investigationDiligence?.questionsForManagement.length).toBeGreaterThan(0);
+    expect(covFinding?.investigationDiligence?.recordsToCrossExamine.length).toBeGreaterThan(0);
+    expect(covFinding?.investigationDiligence?.identifiedInformationGap).toContain('covenant');
+  });
 });
